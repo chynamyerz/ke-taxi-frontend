@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  IonApp,
+  IonButtons,
+  IonCardSubtitle,
+  IonContent,
+  IonHeader,
+  IonMenuButton,
+  IonPage,
+  IonTitle,
+  IonToolbar
+} from "@ionic/react";
+import React from "react";
+import Navigation from "./navigation/Navigation";
+import Routes from "./Routes";
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <IonApp>
+      <IonHeader slot={"start"}>
+        <IonToolbar>
+          <IonButtons slot={"start"}>
+            <IonMenuButton></IonMenuButton>
+          </IonButtons>
+          <IonTitle>
+            Ke-Taxi
+            <IonCardSubtitle>A new way to use public taxis</IonCardSubtitle>
+          </IonTitle>
+        </IonToolbar>
+      </IonHeader>
+
+      <IonPage style={{ marginTop: "3.5em" }}>
+        <Navigation />
+        <IonContent id={"main"}>
+          <Routes />
+        </IonContent>
+      </IonPage>
+    </IonApp>
   );
-}
+};
 
 export default App;
