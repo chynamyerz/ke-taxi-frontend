@@ -39,7 +39,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --watchAll",
+    "test": "jest",
     "eject": "react-scripts eject",
     "format": "prettier --write 'src/**/*.{js,ts,tsx,json,css}'",
     "lint": "tslint 'src/**/*.{ts,tsx}'",
