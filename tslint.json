@@ -1,0 +1,10 @@
+{
+  "extends": ["tslint:latest", "tslint-config-prettier"],
+  "linterOptions": {},
+  "rules": {
+    "member-access": {
+        "severity": "off"
+    },
+    "no-submodule-imports": [false]
+  }
+}
