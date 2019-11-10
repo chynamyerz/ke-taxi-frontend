@@ -5,7 +5,6 @@ export const USER_QUERY = gql`
     user {
       id
       name
-      email
     }
   }
 `;
@@ -15,7 +14,6 @@ export const USERS_QUERY = gql`
     users {
       id
       name
-      email
     }
   }
 `;
