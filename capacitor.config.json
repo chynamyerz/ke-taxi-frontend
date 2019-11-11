@@ -1,0 +1,8 @@
+{
+  "appId": "com.kancanekancane.ketaxi",
+  "appName": "ke-taxi",
+  "bundledWebRuntime": false,
+  "npmClient": "yarn",
+  "webDir": "build",
+  "cordova": {}
+}
