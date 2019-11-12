@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@capacitor/android": "^1.3.0",
     "@capacitor/cli": "^1.2.1",
     "@capacitor/core": "^1.2.1",
     "@ionic/core": "^4.11.1",
@@ -41,6 +42,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "ionic:android": "yarn build && cp -r build/* www/",
     "test": "CI=true react-scripts test --env=jsdom --transformIgnorePatterns \"node_modules/(?!(@ionic|ionicons))/\"",
     "eject": "react-scripts eject",
     "format": "prettier --write 'src/**/*.{js,ts,tsx,json,css}'",
