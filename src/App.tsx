@@ -9,11 +9,11 @@ import {
   IonToolbar
 } from "@ionic/react";
 import React from "react";
-import Navigation from "./navigation/Navigation";
-import Routes from "./Routes";
+import "./App.css";
 import Logo from "./assets/images/Group3.svg";
 import signin from "./assets/images/signin.svg";
-import "./App.css";
+import Navigation from "./navigation/Navigation";
+import Routes from "./Routes";
 
 const App: React.FC = () => {
   return (

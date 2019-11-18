@@ -1,20 +1,20 @@
 import {
   IonButton,
-  IonIcon,
-  IonFooter,
-  IonSelectOption,
-  IonSelect,
+  IonCard,
+  IonCardContent,
   IonCol,
   IonContent,
+  IonFooter,
   IonGrid,
-  IonRow,
-  IonCard,
+  IonIcon,
   IonItem,
-  IonCardContent
+  IonRow,
+  IonSelect,
+  IonSelectOption
 } from "@ionic/react";
+import { people, person } from "ionicons/icons";
 import React from "react";
 import left from "../assets/images/left.svg";
-import { people, person } from "ionicons/icons";
 import "./Home.css";
 
 const Home: React.FC = () => {

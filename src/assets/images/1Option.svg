@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="19.107" height="47.047" viewBox="0 0 19.107 47.047">
+  <g id="Group_780" data-name="Group 780" transform="translate(-67 -427.953)">
+    <g id="Group_36" data-name="Group 36" transform="translate(67 427.953)">
+      <path id="Path_65" data-name="Path 65" d="M5.409,10.144A5.208,5.208,0,0,1,10.554,5,5.208,5.208,0,0,1,15.7,10.144a5.208,5.208,0,0,1-5.144,5.144A5.208,5.208,0,0,1,5.409,10.144Zm5.144,8.084A10.214,10.214,0,0,0,1,24.107v2.94H20.107v-2.94A10.214,10.214,0,0,0,10.554,18.228Z" transform="translate(-1 -5)" fill="#fff"/>
+    </g>
+    <text id="Me" transform="translate(77 472)" fill="#fff" font-size="12" font-family="SegoeUI, Segoe UI" opacity="0.56"><tspan x="-8.525" y="0">Me</tspan></text>
+  </g>
+</svg>

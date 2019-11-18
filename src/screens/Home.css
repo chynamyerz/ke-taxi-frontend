@@ -1,0 +1,65 @@
+.location {
+  width: 100%;
+  padding-inline-start: 0px;
+  max-width: 100%;
+}
+.leftSvg {
+  width: 10px;
+  min-height: 60px;
+  margin: 0;
+  max-width: 7%;
+}
+.toLocation {
+  --inner-border-width: 0px 0px 0px 0px;
+}
+.riders {
+  min-height: 500px;
+  background-color: #353a50;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-inline-start: 2px;
+  -webkit-margin-end: 0px;
+  margin-inline-end: 2px;
+  -webkit-margin-start: 2px;
+}
+.ridesharing {
+  color: #fff;
+}
+.options {
+  padding-inline-start: 0px;
+}
+.cardOption {
+  padding-inline-start: 0px;
+  padding-inline-end: 0px;
+}
+.CardInside {
+  margin-left: 0px;
+  margin-right: 0px;
+  -webkit-margin-start: 0px;
+  margin-inline-start: 0px;
+  -webkit-margin-end: 0px;
+  margin-inline-end: 0px;
+}
+.cardGroups {
+  margin-left: 0px;
+  margin-right: 0px;
+  -webkit-margin-start: 0px;
+  margin-inline-start: 0px;
+  -webkit-margin-end: 0px;
+  margin-inline-end: 0px;
+}
+.active {
+  background-color: #f4911e;
+}
+.optionIcons {
+  margin: auto auto;
+  text-align: center;
+  align-items: center;
+}
+.Registerbutton {
+  --background-activated: #f4911e;
+  --background: #f4911e;
+}
+.iconicon {
+  fill: #f4911e;
+}

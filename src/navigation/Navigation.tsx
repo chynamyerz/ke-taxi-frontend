@@ -1,18 +1,18 @@
 import {
+  IonAvatar,
   IonContent,
   IonHeader,
+  IonIcon,
   IonItem,
   IonLabel,
   IonList,
   IonMenu,
   IonMenuToggle,
-  IonAvatar,
-  IonIcon,
   IonToolbar
 } from "@ionic/react";
+import { person } from "ionicons/icons";
 import React from "react";
 import { Link } from "react-router-dom";
-import { person, telephone } from "ionicons/icons";
 import "./Navigation.css";
 
 const Navigation: React.FC = () => {
