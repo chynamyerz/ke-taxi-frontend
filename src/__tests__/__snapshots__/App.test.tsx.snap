@@ -8,27 +8,46 @@ exports[`App renders without crashing 1`] = `
     <ForwardRef(IonToolbar)>
       <ForwardRef(IonButtons)
         slot="start"
+        style={
+          Object {
+            "paddingLeft": "10px",
+          }
+        }
       >
         <ForwardRef(IonMenuButton) />
       </ForwardRef(IonButtons)>
       <ForwardRef(IonTitle)>
-        Ke-Taxi
-        <ForwardRef(IonCardSubtitle)>
-          A new way to use public taxis
-        </ForwardRef(IonCardSubtitle)>
+        <img
+          alt="Ke-Taxi"
+          src="Group3.svg"
+        />
       </ForwardRef(IonTitle)>
+      <ForwardRef(IonButtons)
+        slot="end"
+        style={
+          Object {
+            "paddingRight": "10px",
+          }
+        }
+      >
+        <img
+          alt="signin"
+          src="signin.svg"
+        />
+      </ForwardRef(IonButtons)>
     </ForwardRef(IonToolbar)>
   </ForwardRef(IonHeader)>
   <IonPage
     style={
       Object {
-        "marginTop": "3.5em",
+        "marginTop": "30px",
       }
     }
   >
     <Navigation />
     <ForwardRef(IonContent)
       id="main"
+      scrollY={false}
     >
       <Routes />
     </ForwardRef(IonContent)>
