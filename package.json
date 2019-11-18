@@ -43,7 +43,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "ionic:android": "yarn build && cp -r build/* www/",
+    "generate:andriod": "yarn build && npx cap add android",
+    "sync:android": "yarn build && npx cap sync",
     "test": "CI=true react-scripts test --env=jsdom --transformIgnorePatterns \"node_modules/(?!(@ionic|ionicons))/\"",
     "eject": "react-scripts eject",
     "format": "prettier --write 'src/**/*.{js,ts,tsx,json,css}'",
