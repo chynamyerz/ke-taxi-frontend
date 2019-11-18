@@ -25,3 +25,6 @@ yarn-error.log*
 # native android folder
 android/
 www/
+
+# IDE
+.idea/
