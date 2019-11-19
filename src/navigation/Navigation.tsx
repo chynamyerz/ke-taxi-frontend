@@ -1,7 +1,7 @@
 import {
-  IonFooter,
   IonAvatar,
   IonContent,
+  IonFooter,
   IonHeader,
   IonIcon,
   IonItem,
@@ -9,20 +9,18 @@ import {
   IonList,
   IonMenu,
   IonMenuToggle,
-  IonToolbar,
-  IonTitle
+  IonToolbar
 } from "@ionic/react";
-import { person } from "ionicons/icons";
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Navigation.css";
-import userCircle from "../assets/images/sideNav/userCircle.svg";
-import user from "../assets/images/sideNav/userOutline.svg";
-import phone from "../assets/images/sideNav/phone-1.svg";
 import about from "../assets/images/sideNav/about.svg";
-import policy from "../assets/images/sideNav/policy.svg";
 import history from "../assets/images/sideNav/history.svg";
 import logout from "../assets/images/sideNav/logout.svg";
+import phone from "../assets/images/sideNav/phone-1.svg";
+import policy from "../assets/images/sideNav/policy.svg";
+import userCircle from "../assets/images/sideNav/userCircle.svg";
+import user from "../assets/images/sideNav/userOutline.svg";
+import "./Navigation.css";
 
 const Navigation: React.FC = () => {
   return (
@@ -152,18 +150,25 @@ const Navigation: React.FC = () => {
       </IonContent>
       <IonFooter>
         <IonToolbar>
-          <IonItem lines="none" className="footerButton">
-            <IonAvatar slot="start" className="footerIcon">
-              <IonIcon
-                icon={logout}
-                color="dark"
-                size="large"
-                className="sideIcons"
-              />
-            </IonAvatar>
+          <IonMenuToggle>
+            <Link
+              to={"/signin"}
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <IonItem lines="none" className="footerButton">
+                <IonAvatar slot="start" className="footerIcon">
+                  <IonIcon
+                    icon={logout}
+                    color="dark"
+                    size="large"
+                    className="sideIcons"
+                  />
+                </IonAvatar>
 
-            <IonLabel>Logout</IonLabel>
-          </IonItem>
+                <IonLabel>Logout</IonLabel>
+              </IonItem>
+            </Link>
+          </IonMenuToggle>
         </IonToolbar>
       </IonFooter>
     </IonMenu>

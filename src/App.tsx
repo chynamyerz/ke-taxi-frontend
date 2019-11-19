@@ -9,6 +9,7 @@ import {
   IonToolbar
 } from "@ionic/react";
 import React from "react";
+import { Link } from "react-router-dom";
 import "./App.css";
 import Logo from "./assets/images/Group3.svg";
 import signin from "./assets/images/signin.svg";
@@ -23,12 +24,20 @@ const App: React.FC = () => {
           <IonButtons slot={"start"} style={{ paddingLeft: "10px" }}>
             <IonMenuButton></IonMenuButton>
           </IonButtons>
-          <IonTitle style={{ marginLeft: "auto", marginRight: "auto" }}>
-            <img src={Logo} alt="Ke-Taxi" />
-          </IonTitle>
-          <IonButtons slot={"end"} style={{ paddingRight: "10px" }}>
-            <img src={signin} alt="signin" />
-          </IonButtons>
+          <Link to={"/"} style={{ textDecoration: "none", color: "black" }}>
+            <IonTitle style={{ marginLeft: "auto", marginRight: "auto" }}>
+              <img src={Logo} alt="Ke-Taxi" />
+            </IonTitle>
+          </Link>
+          <Link
+            to={"/signin"}
+            style={{ textDecoration: "none", color: "black" }}
+            slot={"end"}
+          >
+            <IonButtons style={{ paddingRight: "10px" }}>
+              <img src={signin} alt="signin" />
+            </IonButtons>
+          </Link>
         </IonToolbar>
       </IonHeader>
 

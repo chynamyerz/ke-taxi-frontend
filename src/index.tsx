@@ -17,7 +17,8 @@ import * as serviceWorker from "./serviceWorker";
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: createHttpLink({
-    uri: "link/to/api"
+    credentials: "include",
+    uri: process.env.REACT_APP_API_URI
   })
 });
 

@@ -2,12 +2,18 @@ import { IonCard, IonCardHeader, IonCardTitle, IonContent } from "@ionic/react";
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Home from "./screens/Home";
+import Login from "./screens/Login";
+import Register from "./screens/Register";
 import Screen1 from "./screens/Screen1";
 import Screen2 from "./screens/Screen2";
 
 const Routes: React.FC = () => (
   <Switch>
     <Route exact path="/" component={Home} />
+
+    <Route exact path="/signin" component={Login} />
+
+    <Route exact path="/signup" component={Register} />
 
     <Route exact path="/screen2" component={Screen2} />
 

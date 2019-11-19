@@ -113,20 +113,5 @@ const Home: React.FC = () => {
     </>
   );
 };
-{
-  /* <div className="location">
-                <div className="leftSvg"><img src={left} alt="left" /></div>
-                <div> <IonList className="au-form" slot="end">
-                      <IonItem className="textfield">
-            <IonInput  type="text" placeholder="Email"></IonInput>
-            </IonItem>
-                        </IonList></div>
-               
-                      </div>
-                     {/*  <IonList className="au-form" slot="end">
-                      <IonItem className="textfield">
-            <IonInput  type="text" placeholder="Email"></IonInput>
-            </IonItem>
-                        </IonList>  */
-}
+
 export default Home;

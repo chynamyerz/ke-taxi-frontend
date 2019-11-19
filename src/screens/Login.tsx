@@ -1,5 +1,6 @@
 import { IonButton, IonInput, IonItem, IonList } from "@ionic/react";
 import React from "react";
+import { Link } from "react-router-dom";
 import back_register from "../assets/images/back_register.svg";
 import email from "../assets/images/email.svg";
 import lock from "../assets/images/lock.svg";
@@ -25,9 +26,13 @@ const Login: React.FC = () => {
           SIGNIN
         </IonButton>
       </IonItem>
-      <div className="" slot="start">
+      <Link
+        to={"/signup"}
+        style={{ textDecoration: "none", color: "black" }}
+        slot={"start"}
+      >
         <img src={back_register} alt="register" />
-      </div>
+      </Link>
     </IonList>
   );
 };

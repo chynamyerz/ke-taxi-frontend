@@ -16,31 +16,58 @@ exports[`App renders without crashing 1`] = `
       >
         <ForwardRef(IonMenuButton) />
       </ForwardRef(IonButtons)>
-      <ForwardRef(IonTitle)>
-        <img
-          alt="Ke-Taxi"
-          src="Group3.svg"
-        />
-      </ForwardRef(IonTitle)>
-      <ForwardRef(IonButtons)
+      <Link
+        style={
+          Object {
+            "color": "black",
+            "textDecoration": "none",
+          }
+        }
+        to="/"
+      >
+        <ForwardRef(IonTitle)
+          style={
+            Object {
+              "marginLeft": "auto",
+              "marginRight": "auto",
+            }
+          }
+        >
+          <img
+            alt="Ke-Taxi"
+            src="Group3.svg"
+          />
+        </ForwardRef(IonTitle)>
+      </Link>
+      <Link
         slot="end"
         style={
           Object {
-            "paddingRight": "10px",
+            "color": "black",
+            "textDecoration": "none",
           }
         }
+        to="/signin"
       >
-        <img
-          alt="signin"
-          src="signin.svg"
-        />
-      </ForwardRef(IonButtons)>
+        <ForwardRef(IonButtons)
+          style={
+            Object {
+              "paddingRight": "10px",
+            }
+          }
+        >
+          <img
+            alt="signin"
+            src="signin.svg"
+          />
+        </ForwardRef(IonButtons)>
+      </Link>
     </ForwardRef(IonToolbar)>
   </ForwardRef(IonHeader)>
   <IonPage
     style={
       Object {
-        "marginTop": "30px",
+        "marginTop": "50px",
       }
     }
   >
