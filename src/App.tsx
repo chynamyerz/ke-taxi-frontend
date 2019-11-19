@@ -23,7 +23,7 @@ const App: React.FC = () => {
           <IonButtons slot={"start"} style={{ paddingLeft: "10px" }}>
             <IonMenuButton></IonMenuButton>
           </IonButtons>
-          <IonTitle>
+          <IonTitle style={{ marginLeft: "auto", marginRight: "auto" }}>
             <img src={Logo} alt="Ke-Taxi" />
           </IonTitle>
           <IonButtons slot={"end"} style={{ paddingRight: "10px" }}>
@@ -32,7 +32,7 @@ const App: React.FC = () => {
         </IonToolbar>
       </IonHeader>
 
-      <IonPage style={{ marginTop: "30px" }}>
+      <IonPage style={{ marginTop: "50px" }}>
         <Navigation />
         <IonContent scrollY={false} id={"main"}>
           <Routes />

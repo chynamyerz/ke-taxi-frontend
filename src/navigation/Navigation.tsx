@@ -1,4 +1,5 @@
 import {
+  IonFooter,
   IonAvatar,
   IonContent,
   IonHeader,
@@ -8,21 +9,35 @@ import {
   IonList,
   IonMenu,
   IonMenuToggle,
-  IonToolbar
+  IonToolbar,
+  IonTitle
 } from "@ionic/react";
 import { person } from "ionicons/icons";
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navigation.css";
+import userCircle from "../assets/images/sideNav/userCircle.svg";
+import user from "../assets/images/sideNav/userOutline.svg";
+import phone from "../assets/images/sideNav/phone-1.svg";
+import about from "../assets/images/sideNav/about.svg";
+import policy from "../assets/images/sideNav/policy.svg";
+import history from "../assets/images/sideNav/history.svg";
+import logout from "../assets/images/sideNav/logout.svg";
 
 const Navigation: React.FC = () => {
   return (
     <IonMenu contentId={"main"} slot={"start"}>
       <IonHeader translucent>
         <IonToolbar className="titleBar">
-          <IonAvatar>
-            <IonIcon icon={person} color="light" size="large" />
-          </IonAvatar>
+          <IonItem lines="none" className="HeaderItems">
+            <IonAvatar slot="start">
+              <IonIcon icon={userCircle} color="dark" size="large" />
+            </IonAvatar>
+
+            <IonLabel>
+              Mr Incredible <br /> Incredible@hero.com
+            </IonLabel>
+          </IonItem>
         </IonToolbar>
       </IonHeader>
       <IonContent>
@@ -32,7 +47,12 @@ const Navigation: React.FC = () => {
               <Link to={"/"} style={{ textDecoration: "none", color: "black" }}>
                 <IonItem lines="none">
                   <IonAvatar slot="start">
-                    <IonIcon icon={person} color="dark" size="large" />
+                    <IonIcon
+                      icon={user}
+                      color="dark"
+                      size="large"
+                      className="sideIcons"
+                    />
                   </IonAvatar>
 
                   <IonLabel>Profile</IonLabel>
@@ -49,10 +69,15 @@ const Navigation: React.FC = () => {
               >
                 <IonItem lines="none">
                   <IonAvatar slot="start">
-                    <IonIcon icon={person} color="dark" size="large" />
+                    <IonIcon
+                      icon={phone}
+                      color="dark"
+                      size="large"
+                      className="sideIcons"
+                    />
                   </IonAvatar>
 
-                  <IonLabel>Screen1</IonLabel>
+                  <IonLabel>Contact Us</IonLabel>
                 </IonItem>
               </Link>
             </IonMenuToggle>
@@ -64,12 +89,83 @@ const Navigation: React.FC = () => {
                 to={"/screen2"}
                 style={{ textDecoration: "none", color: "black" }}
               >
-                <IonLabel>Screen2</IonLabel>
+                <IonItem lines="none">
+                  <IonAvatar slot="start">
+                    <IonIcon
+                      icon={about}
+                      color="dark"
+                      size="large"
+                      className="sideIcons"
+                    />
+                  </IonAvatar>
+
+                  <IonLabel>About Us</IonLabel>
+                </IonItem>
+              </Link>
+            </IonMenuToggle>
+          </IonItem>
+
+          <IonItem lines="none">
+            <IonMenuToggle>
+              <Link
+                to={"/screen2"}
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <IonItem lines="none">
+                  <IonAvatar slot="start">
+                    <IonIcon
+                      icon={policy}
+                      color="dark"
+                      size="large"
+                      className="sideIcons"
+                    />
+                  </IonAvatar>
+
+                  <IonLabel>Policy</IonLabel>
+                </IonItem>
+              </Link>
+            </IonMenuToggle>
+          </IonItem>
+
+          <IonItem lines="none">
+            <IonMenuToggle>
+              <Link
+                to={"/screen2"}
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <IonItem lines="none">
+                  <IonAvatar slot="start">
+                    <IonIcon
+                      icon={history}
+                      color="dark"
+                      size="large"
+                      className="sideIcons"
+                    />
+                  </IonAvatar>
+
+                  <IonLabel>History</IonLabel>
+                </IonItem>
               </Link>
             </IonMenuToggle>
           </IonItem>
         </IonList>
       </IonContent>
+      <IonFooter>
+        <IonToolbar>
+          <IonItem lines="none" className="footerButton">
+            <IonAvatar slot="start" className="footerIcon">
+              <IonIcon
+                icon={logout}
+                color="dark"
+                size="large"
+                className="sideIcons"
+              />
+            </IonAvatar>
+
+            <IonLabel>Logout</IonLabel>
+          </IonItem>
+        </IonToolbar>
+      </IonFooter>
     </IonMenu>
   );
 };

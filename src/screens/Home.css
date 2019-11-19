@@ -11,10 +11,11 @@
 }
 .toLocation {
   --inner-border-width: 0px 0px 0px 0px;
+  --border-width: 0 0 0 0;
 }
 .riders {
   min-height: 500px;
-  background-color: #353a50;
+  background-color: #2a2e43;
   margin-left: 2px;
   margin-right: 2px;
   margin-inline-start: 2px;
@@ -44,9 +45,10 @@
   margin-left: 0px;
   margin-right: 0px;
   -webkit-margin-start: 0px;
-  margin-inline-start: 0px;
-  -webkit-margin-end: 0px;
-  margin-inline-end: 0px;
+  margin-inline-start: 2px;
+  -webkit-margin-end: 2px;
+  margin-inline-end: 2px;
+  background-color: #353a50;
 }
 .active {
   background-color: #f4911e;
@@ -59,6 +61,9 @@
 .Registerbutton {
   --background-activated: #f4911e;
   --background: #f4911e;
+  margin-top: 15px;
+  height: 42px;
+  --border-radius: 10px;
 }
 .iconicon {
   fill: #f4911e;
