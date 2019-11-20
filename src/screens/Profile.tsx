@@ -23,7 +23,7 @@ const Profile: React.FC = () => {
         <IonGrid>
           <IonRow>
             <IonCol size-sm="8" offset-sm="2" size-md="4" offset-md="4">
-              <Pageinfo Title="Profile"></Pageinfo>
+              <Pageinfo title="Profile"></Pageinfo>
             </IonCol>
           </IonRow>
         </IonGrid>
