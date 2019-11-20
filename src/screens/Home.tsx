@@ -20,7 +20,7 @@ import "./Home.css";
 const Home: React.FC = () => {
   return (
     <>
-      <IonContent style={{ height: "45%" }} scrollY={false}>
+      <IonContent style={{ height: "50%" }} scrollY={false}>
         <IonGrid>
           <IonRow>
             <IonCol size-sm="6" offset-sm="3" size-md="4" offset-md="4">
@@ -33,25 +33,22 @@ const Home: React.FC = () => {
                     <IonCol size="11">
                       <IonItem>
                         <IonSelect placeholder="From" className="location">
-                          <IonSelectOption value="f">Female</IonSelectOption>
-                          <IonSelectOption value="m">Male</IonSelectOption>
+                          <IonSelectOption value="f">Up Town</IonSelectOption>
+                          <IonSelectOption value="m">Down Town</IonSelectOption>
                         </IonSelect>
                       </IonItem>
                       <IonItem className="toLocation">
                         <IonSelect placeholder="To" className="location">
-                          <IonSelectOption value="f">Female</IonSelectOption>
-                          <IonSelectOption value="m">Male</IonSelectOption>
+                          <IonSelectOption value="f">
+                            Bus Stop 1
+                          </IonSelectOption>
+                          <IonSelectOption value="m">Taxi Rank</IonSelectOption>
                         </IonSelect>
                       </IonItem>
                     </IonCol>
                   </IonRow>
                 </IonCardContent>
               </IonCard>
-              {/* <IonCard className="riders">
-              <IonCardContent >
-                <h2>this is me</h2>
-              </IonCardContent>
-            </IonCard> */}
             </IonCol>
           </IonRow>
         </IonGrid>
@@ -101,7 +98,7 @@ const Home: React.FC = () => {
               </IonRow>
               <IonRow>
                 <IonCol>
-                  <IonButton expand="full" className="Registerbutton">
+                  <IonButton expand="full" className="CallTaxibutton">
                     CALL TAXI{" "}
                   </IonButton>
                 </IonCol>

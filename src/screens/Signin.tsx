@@ -1,24 +1,28 @@
-import { IonButton, IonInput, IonItem, IonList } from "@ionic/react";
+import { IonButton, IonInput, IonItem, IonList, IonIcon } from "@ionic/react";
 import React from "react";
 import { Link } from "react-router-dom";
 import back_register from "../assets/images/back_register.svg";
-import email from "../assets/images/email.svg";
-import lock from "../assets/images/lock.svg";
-import "./Register.css";
+import { lock, mail } from "ionicons/icons";
+import "./Signup.css";
 
-const Login: React.FC = () => {
+const Signin: React.FC = () => {
   return (
     <IonList className="au-form">
       <IonItem className="textfield">
         <IonInput type="text" placeholder="Email"></IonInput>
         <div className="textLabel" slot="start">
-          <img src={email} alt="email" />
+          <IonIcon
+            icon={mail}
+            color="dark"
+            mode="ios"
+            className="textfieldIcon"
+          />
         </div>
       </IonItem>
       <IonItem className="textfield">
         <IonInput type="text" placeholder="Confirm Password"></IonInput>
         <div className="textLabel" slot="start">
-          <img src={lock} alt="lock" />
+          <IonIcon icon={lock} color="dark" className="textfieldIcon" />
         </div>
       </IonItem>
       <IonItem className="textfield">
@@ -37,4 +41,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default Signin;
