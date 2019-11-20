@@ -14,7 +14,7 @@ import {
 } from "@ionic/react";
 import React from "react";
 
-const Screen1: React.FC = () => {
+const History: React.FC = () => {
   return (
     <IonContent>
       <IonGrid>
@@ -22,7 +22,7 @@ const Screen1: React.FC = () => {
           <IonCol size-sm="8" offset-sm="2" size-md="4" offset-md="4">
             <IonCard>
               <IonCardHeader>
-                <IonCardTitle>Screen1</IonCardTitle>
+                <IonCardTitle>History</IonCardTitle>
               </IonCardHeader>
               <IonCardContent>
                 <IonItem>
@@ -42,4 +42,4 @@ const Screen1: React.FC = () => {
   );
 };
 
-export default Screen1;
+export default History;

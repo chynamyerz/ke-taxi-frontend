@@ -42,7 +42,10 @@ const Navigation: React.FC = () => {
         <IonList>
           <IonItem lines="none">
             <IonMenuToggle>
-              <Link to={"/"} style={{ textDecoration: "none", color: "black" }}>
+              <Link
+                to={"/profile"}
+                style={{ textDecoration: "none", color: "black" }}
+              >
                 <IonItem lines="none">
                   <IonAvatar slot="start">
                     <IonIcon
@@ -62,7 +65,7 @@ const Navigation: React.FC = () => {
           <IonItem lines="none">
             <IonMenuToggle>
               <Link
-                to={"/screen1"}
+                to={"/contact"}
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <IonItem lines="none">
@@ -84,7 +87,7 @@ const Navigation: React.FC = () => {
           <IonItem lines="none">
             <IonMenuToggle>
               <Link
-                to={"/screen2"}
+                to={"/about"}
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <IonItem lines="none">
@@ -106,7 +109,7 @@ const Navigation: React.FC = () => {
           <IonItem lines="none">
             <IonMenuToggle>
               <Link
-                to={"/screen2"}
+                to={"/policy"}
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <IonItem lines="none">
@@ -128,7 +131,7 @@ const Navigation: React.FC = () => {
           <IonItem lines="none">
             <IonMenuToggle>
               <Link
-                to={"/screen2"}
+                to={"/history"}
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <IonItem lines="none">
@@ -164,8 +167,7 @@ const Navigation: React.FC = () => {
                     className="sideIcons"
                   />
                 </IonAvatar>
-
-                <IonLabel>Logout</IonLabel>
+                <IonLabel>Sign Out</IonLabel>
               </IonItem>
             </Link>
           </IonMenuToggle>

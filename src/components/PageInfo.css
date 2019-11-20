@@ -1,0 +1,6 @@
+.pageTitle {
+  text-align: center;
+}
+.innerToolbar {
+  --inner-padding-end: 1px;
+}

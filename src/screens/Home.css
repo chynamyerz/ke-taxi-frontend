@@ -58,12 +58,13 @@
   text-align: center;
   align-items: center;
 }
-.Registerbutton {
+.CallTaxibutton {
   --background-activated: #f4911e;
   --background: #f4911e;
   margin-top: 15px;
   height: 42px;
   --border-radius: 10px;
+  color: #fff;
 }
 .iconicon {
   fill: #f4911e;

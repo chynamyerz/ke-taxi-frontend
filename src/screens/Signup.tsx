@@ -1,14 +1,10 @@
-import { IonButton, IonInput, IonItem, IonList } from "@ionic/react";
+import { IonButton, IonInput, IonItem, IonList, IonIcon } from "@ionic/react";
 import React, { useState } from "react";
 import { useMutation } from "react-apollo";
 import { Redirect } from "react-router";
-import email from "../assets/images/email.svg";
-import lock from "../assets/images/lock.svg";
-import phone from "../assets/images/phone.svg";
-import unlock from "../assets/images/unlock.svg";
-import User from "../assets/images/user.svg";
+import { call, lock, mail, person, unlock } from "ionicons/icons";
 import { SIGNUP_MUTATION } from "../graphql/Mutation";
-import "./Register.css";
+import "./Signup.css";
 const Register: React.FC = () => {
   const [name, setName] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
@@ -40,7 +36,7 @@ const Register: React.FC = () => {
           onIonChange={(e: any) => setName(e.target.value)}
         />
         <div className="textLabel" slot="start">
-          <img src={User} alt="user" />
+          <IonIcon icon={person} color="dark" className="textfieldIcon" />
         </div>
       </IonItem>
       <IonItem className="textfield">
@@ -51,7 +47,12 @@ const Register: React.FC = () => {
           onIonChange={(e: any) => setEmailAddress(e.target.value)}
         />
         <div className="textLabel" slot="start">
-          <img src={email} alt="email" />
+          <IonIcon
+            icon={mail}
+            color="dark"
+            className="textfieldIcon"
+            mode="ios"
+          />
         </div>
       </IonItem>
       <IonItem className="textfield">
@@ -62,7 +63,7 @@ const Register: React.FC = () => {
           placeholder="Cellphone no."
         />
         <div className="textLabel" slot="start">
-          <img src={phone} alt="phone" />
+          <IonIcon icon={call} color="dark" className="textfieldIcon" />
         </div>
       </IonItem>
       <IonItem className="textfield">
@@ -73,7 +74,7 @@ const Register: React.FC = () => {
           placeholder="Password"
         />
         <div className="textLabel" slot="start">
-          <img src={unlock} alt="unlock" />
+          <IonIcon icon={unlock} color="dark" className="textfieldIcon" />
         </div>
       </IonItem>
       <IonItem className="textfield">
@@ -84,7 +85,7 @@ const Register: React.FC = () => {
           placeholder="Confirm Password"
         />
         <div className="textLabel" slot="start">
-          <img src={lock} alt="lock" />
+          <IonIcon icon={lock} color="dark" className="textfieldIcon" />
         </div>
       </IonItem>
       <IonItem className="textfield">
