@@ -11,7 +11,9 @@ import {
   IonMenuToggle,
   IonToolbar
 } from "@ionic/react";
-import React from "react";
+import { person } from "ionicons/icons";
+import React, { useState } from "react";
+import { useMutation } from "react-apollo";
 import { Link } from "react-router-dom";
 import about from "../assets/images/sideNav/about.svg";
 import history from "../assets/images/sideNav/history.svg";
@@ -19,10 +21,38 @@ import logout from "../assets/images/sideNav/logout.svg";
 import phone from "../assets/images/sideNav/phone-1.svg";
 import policy from "../assets/images/sideNav/policy.svg";
 import userCircle from "../assets/images/sideNav/userCircle.svg";
-import user from "../assets/images/sideNav/userOutline.svg";
+import Loader from "../components/Loader";
+import { LOGOUT_USER_MUTATION } from "../graphql/Mutation";
+import { USER_QUERY } from "../graphql/Query";
 import "./Navigation.css";
 
-const Navigation: React.FC = () => {
+const Navigation: React.FC<{ user: any }> = props => {
+  const { user } = props;
+  const [errors, setErrors] = useState({ response: "" });
+  const [signoutUser, { loading }] = useMutation(LOGOUT_USER_MUTATION, {
+    refetchQueries: [{ query: USER_QUERY }]
+  });
+
+  if (loading) {
+    return <Loader message={"Signing out..."} />;
+  }
+
+  const signout = async () => {
+    try {
+      await signoutUser();
+      setErrors({
+        response: ""
+      });
+    } catch (error) {
+      setErrors({
+        ...errors,
+        response: error.message
+          .replace("GraphQL error: ", "")
+          .replace("Network error: ", "")
+      });
+    }
+  };
+
   return (
     <IonMenu contentId={"main"} slot={"start"}>
       <IonHeader translucent>
@@ -33,7 +63,8 @@ const Navigation: React.FC = () => {
             </IonAvatar>
 
             <IonLabel>
-              Mr Incredible <br /> Incredible@hero.com
+              {user ? `Hi ${user.name}` : "Not signed in"} <br />
+              {user ? user.email : null}
             </IonLabel>
           </IonItem>
         </IonToolbar>
@@ -49,7 +80,7 @@ const Navigation: React.FC = () => {
                 <IonItem lines="none">
                   <IonAvatar slot="start">
                     <IonIcon
-                      icon={user}
+                      icon={person}
                       color="dark"
                       size="large"
                       className="sideIcons"
@@ -151,28 +182,31 @@ const Navigation: React.FC = () => {
           </IonItem>
         </IonList>
       </IonContent>
-      <IonFooter>
-        <IonToolbar>
-          <IonMenuToggle>
-            <Link
-              to={"/signin"}
-              style={{ textDecoration: "none", color: "black" }}
-            >
-              <IonItem lines="none" className="footerButton">
-                <IonAvatar slot="start" className="footerIcon">
-                  <IonIcon
-                    icon={logout}
-                    color="dark"
-                    size="large"
-                    className="sideIcons"
-                  />
-                </IonAvatar>
-                <IonLabel>Sign Out</IonLabel>
-              </IonItem>
-            </Link>
-          </IonMenuToggle>
-        </IonToolbar>
-      </IonFooter>
+      {user && (
+        <IonFooter>
+          <IonToolbar>
+            <IonMenuToggle>
+              <Link
+                to={"/signin"}
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <IonItem lines="none" className="footerButton">
+                  <IonAvatar slot="start" className="footerIcon">
+                    <IonIcon
+                      icon={logout}
+                      color="dark"
+                      size="large"
+                      className="sideIcons"
+                      onClick={() => signout()}
+                    />
+                  </IonAvatar>
+                  <IonLabel>Sign Out</IonLabel>
+                </IonItem>
+              </Link>
+            </IonMenuToggle>
+          </IonToolbar>
+        </IonFooter>
+      )}
     </IonMenu>
   );
 };

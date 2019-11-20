@@ -3,10 +3,8 @@ import { arrowBack, close } from "ionicons/icons";
 import React from "react";
 import "./PageInfo.css";
 
-interface PageinfoProps {
-  Title: string;
-}
-const PageInfo: React.FC<PageinfoProps> = ({ Title }) => {
+const PageInfo: React.FC<{ title: string }> = props => {
+  const { title } = props;
   return (
     <IonItem lines="none" className="innerToolbar">
       <IonAvatar slot="start">
@@ -18,7 +16,7 @@ const PageInfo: React.FC<PageinfoProps> = ({ Title }) => {
         />
       </IonAvatar>
 
-      <IonLabel className="pageTitle">{Title}</IonLabel>
+      <IonLabel className="pageTitle">{title}</IonLabel>
       <IonAvatar slot="end">
         <IonIcon icon={close} color="dark" size="large" className="sideIcons" />
       </IonAvatar>

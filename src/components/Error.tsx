@@ -1,18 +1,16 @@
+import { IonAlert } from "@ionic/react";
 import React, { useState } from "react";
-import { IonAlert, IonButton, IonContent } from "@ionic/react";
-interface ErrorProps {
-  error: string;
-  errorDesc: string;
-}
-const Error: React.FC<ErrorProps> = ({ error, errorDesc }) => {
-  const [showAlert1, setShowAlert1] = useState(true);
+
+const Error: React.FC<{ message: string }> = props => {
+  const [showAlert, setShowAlert] = useState(true);
+  const { message } = props;
   return (
     <>
       <IonAlert
-        isOpen={showAlert1}
-        onDidDismiss={() => setShowAlert1(true)}
-        header={error}
-        subHeader={errorDesc}
+        isOpen={showAlert}
+        onDidDismiss={() => setShowAlert(false)}
+        header={"Error"}
+        message={message}
         buttons={["Exit"]}
       />
     </>

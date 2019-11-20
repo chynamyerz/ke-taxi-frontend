@@ -1,33 +1,50 @@
-import { IonButton, IonInput, IonItem, IonList, IonIcon } from "@ionic/react";
+import { IonButton, IonIcon, IonInput, IonItem, IonList } from "@ionic/react";
+import { call, lock, mail, person, unlock } from "ionicons/icons";
 import React, { useState } from "react";
 import { useMutation } from "react-apollo";
 import { Redirect } from "react-router";
-import { call, lock, mail, person, unlock } from "ionicons/icons";
+import Error from "../components/Error";
+import Loader from "../components/Loader";
 import { SIGNUP_MUTATION } from "../graphql/Mutation";
+
 import "./Signup.css";
+
 const Register: React.FC = () => {
   const [name, setName] = useState("");
-  const [emailAddress, setEmailAddress] = useState("");
+  const [email, setEmail] = useState("");
   const [cell, setCell] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+    response: ""
+  });
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const [signup, { data, error, loading }] = useMutation(SIGNUP_MUTATION, {
-    variables: { name, emailAddress, cell, password }
+    variables: { cell, email, name, password }
   });
 
-  if (error) {
-    return <p>{error.message}</p>;
+  if (error && !errors.response) {
+    setErrors({
+      ...errors,
+      response: error.message
+        .replace("GraphQL error: ", "")
+        .replace("Network error: ", "")
+    });
   }
   if (loading) {
-    return <p>Loading...</p>;
+    if (loading) {
+      return <Loader message={"Signing up..."} />;
+    }
   }
   if (data && data.signup && data.signup.id) {
-    return <Redirect to="/" />;
+    return <Redirect to="/signin" />;
   }
 
   return (
     <IonList className="au-form">
+      {errors.response && <Error message={errors.response} />}
       <IonItem className="textfield">
         <IonInput
           type="text"
@@ -42,9 +59,9 @@ const Register: React.FC = () => {
       <IonItem className="textfield">
         <IonInput
           type="text"
-          value={emailAddress}
+          value={email}
           placeholder="Email address"
-          onIonChange={(e: any) => setEmailAddress(e.target.value)}
+          onIonChange={(e: any) => setEmail(e.target.value)}
         />
         <div className="textLabel" slot="start">
           <IonIcon

@@ -1,19 +1,5 @@
-import {
-  IonButton,
-  IonCard,
-  IonCardContent,
-  IonCardHeader,
-  IonCardTitle,
-  IonCol,
-  IonContent,
-  IonGrid,
-  IonInput,
-  IonItem,
-  IonLabel,
-  IonRow
-} from "@ionic/react";
+import { IonCol, IonContent, IonGrid, IonRow } from "@ionic/react";
 import React from "react";
-import Loader from "../components/Loader";
 
 const Policy: React.FC = () => {
   return (

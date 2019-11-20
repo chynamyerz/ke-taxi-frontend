@@ -1,7 +1,8 @@
+import { IonButton, IonContent, IonLoading } from "@ionic/react";
 import React, { useState } from "react";
-import { IonLoading, IonButton, IonContent } from "@ionic/react";
 
-const Loader: React.FC = () => {
+const Loader: React.FC<{ message: string }> = props => {
+  const { message } = props;
   const [showLoading, setShowLoading] = useState(true);
 
   setTimeout(() => {
@@ -13,8 +14,7 @@ const Loader: React.FC = () => {
       <IonLoading
         isOpen={showLoading}
         onDidDismiss={() => setShowLoading(false)}
-        message={"Loading..."}
-        duration={5000}
+        message={message}
       />
     </>
   );
