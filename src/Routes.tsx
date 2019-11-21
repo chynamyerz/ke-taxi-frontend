@@ -12,14 +12,13 @@ import Signup from "./screens/Signup";
 
 const Routes: React.FC = () => (
   <Switch>
-    <Route exact path="/home" component={Home} />
+    <Route exact path="/" component={Home} />
     <Route exact path="/profile" component={Profile} />
     <Route exact path="/contact" component={Contact} />
     <Route exact path="/about" component={About} />
     <Route exact path="/policy" component={Policy} />
     <Route exact path="/history" component={History} />
     <Route exact path="/signin" component={Signin} />
-    <Route exact path="/" component={Signin} />
     <Route exact path="/signup" component={Signup} />
     <Route
       exact

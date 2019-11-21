@@ -12,7 +12,6 @@ import {
 import { call, logoFacebook, logoTwitter, mail } from "ionicons/icons";
 import React from "react";
 import Pageinfo from "../components/PageInfo";
-import "./Contact.css";
 const Contact: React.FC = () => {
   return (
     <IonContent>
@@ -47,16 +46,29 @@ const Contact: React.FC = () => {
               </IonItem>
 
               <IonItem lines="none">
-                <IonGrid>
-                  <IonRow>
-                    <IonCol size="3">
-                      <IonIcon icon={logoFacebook} color="dark" size="large" />
-                    </IonCol>
-                    <IonCol size="3">
-                      <IonIcon icon={logoTwitter} color="dark" size="large" />
-                    </IonCol>
-                  </IonRow>
-                </IonGrid>
+                <IonAvatar slot="start">
+                  <IonIcon
+                    icon={logoFacebook}
+                    color="dark"
+                    size="large"
+                    className="sideIcons"
+                  />
+                </IonAvatar>
+
+                <IonLabel>ke-taxi@facebook.com</IonLabel>
+              </IonItem>
+
+              <IonItem lines="none">
+                <IonAvatar slot="start">
+                  <IonIcon
+                    icon={logoTwitter}
+                    color="dark"
+                    size="large"
+                    className="sideIcons"
+                  />
+                </IonAvatar>
+
+                <IonLabel>@ke_taxi</IonLabel>
               </IonItem>
             </IonCard>
           </IonCol>

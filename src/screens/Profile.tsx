@@ -4,7 +4,6 @@ import {
   IonCardContent,
   IonCol,
   IonContent,
-  IonFooter,
   IonGrid,
   IonIcon,
   IonInput,
@@ -21,7 +20,14 @@ const Profile: React.FC = () => {
     <IonContent>
       <IonGrid>
         <IonRow>
-          <IonCol size-sm="8" offset-sm="2" size-md="4" offset-md="4">
+          <IonCol
+            sizeSm={"8"}
+            offsetSm={"2"}
+            sizeMd={"6"}
+            offsetMd={"3"}
+            sizeLg={"4"}
+            offsetLg={"4"}
+          >
             <Pageinfo title="Profile"></Pageinfo>
             <IonCard className="FooterCard">
               <IonCardContent>

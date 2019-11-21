@@ -14,14 +14,7 @@
   --border-width: 0 0 0 0;
 }
 .riders {
-  min-height: 500px;
   background-color: #2a2e43;
-  margin-left: 2px;
-  margin-right: 2px;
-  margin-inline-start: 2px;
-  -webkit-margin-end: 0px;
-  margin-inline-end: 2px;
-  -webkit-margin-start: 2px;
 }
 .ridesharing {
   color: #fff;

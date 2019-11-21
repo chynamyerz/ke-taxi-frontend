@@ -11,16 +11,18 @@ import {
   IonMenuToggle,
   IonToolbar
 } from "@ionic/react";
-import { person } from "ionicons/icons";
+import {
+  archive,
+  call,
+  checkmarkCircle,
+  home,
+  informationCircle,
+  logOut,
+  person
+} from "ionicons/icons";
 import React, { useState } from "react";
 import { useMutation } from "react-apollo";
 import { Link } from "react-router-dom";
-import about from "../assets/images/sideNav/about.svg";
-import history from "../assets/images/sideNav/history.svg";
-import logout from "../assets/images/sideNav/logout.svg";
-import phone from "../assets/images/sideNav/phone-1.svg";
-import policy from "../assets/images/sideNav/policy.svg";
-import userCircle from "../assets/images/sideNav/userCircle.svg";
 import Loader from "../components/Loader";
 import { LOGOUT_USER_MUTATION } from "../graphql/Mutation";
 import { USER_QUERY } from "../graphql/Query";
@@ -59,7 +61,7 @@ const Navigation: React.FC<{ user: any }> = props => {
         <IonToolbar className="titleBar">
           <IonItem lines="none" className="HeaderItems">
             <IonAvatar slot="start">
-              <IonIcon icon={userCircle} color="dark" size="large" />
+              <IonIcon icon={person} color="ligh" size="large" mode="ios" />
             </IonAvatar>
 
             <IonLabel>
@@ -73,6 +75,25 @@ const Navigation: React.FC<{ user: any }> = props => {
         <IonList>
           <IonItem lines="none">
             <IonMenuToggle>
+              <Link to={"/"} style={{ textDecoration: "none", color: "black" }}>
+                <IonItem lines="none">
+                  <IonAvatar slot="start">
+                    <IonIcon
+                      icon={home}
+                      color="dark"
+                      mode="ios"
+                      className="sideIcons"
+                    />
+                  </IonAvatar>
+
+                  <IonLabel>Home</IonLabel>
+                </IonItem>
+              </Link>
+            </IonMenuToggle>
+          </IonItem>
+
+          <IonItem lines="none">
+            <IonMenuToggle>
               <Link
                 to={"/profile"}
                 style={{ textDecoration: "none", color: "black" }}
@@ -82,7 +103,7 @@ const Navigation: React.FC<{ user: any }> = props => {
                     <IonIcon
                       icon={person}
                       color="dark"
-                      size="large"
+                      mode="ios"
                       className="sideIcons"
                     />
                   </IonAvatar>
@@ -102,9 +123,9 @@ const Navigation: React.FC<{ user: any }> = props => {
                 <IonItem lines="none">
                   <IonAvatar slot="start">
                     <IonIcon
-                      icon={phone}
+                      icon={call}
                       color="dark"
-                      size="large"
+                      mode="ios"
                       className="sideIcons"
                     />
                   </IonAvatar>
@@ -124,9 +145,9 @@ const Navigation: React.FC<{ user: any }> = props => {
                 <IonItem lines="none">
                   <IonAvatar slot="start">
                     <IonIcon
-                      icon={about}
+                      icon={informationCircle}
                       color="dark"
-                      size="large"
+                      mode="ios"
                       className="sideIcons"
                     />
                   </IonAvatar>
@@ -146,9 +167,9 @@ const Navigation: React.FC<{ user: any }> = props => {
                 <IonItem lines="none">
                   <IonAvatar slot="start">
                     <IonIcon
-                      icon={policy}
+                      icon={checkmarkCircle}
                       color="dark"
-                      size="large"
+                      mode="ios"
                       className="sideIcons"
                     />
                   </IonAvatar>
@@ -168,9 +189,9 @@ const Navigation: React.FC<{ user: any }> = props => {
                 <IonItem lines="none">
                   <IonAvatar slot="start">
                     <IonIcon
-                      icon={history}
+                      icon={archive}
                       color="dark"
-                      size="large"
+                      mode="ios"
                       className="sideIcons"
                     />
                   </IonAvatar>
@@ -193,14 +214,14 @@ const Navigation: React.FC<{ user: any }> = props => {
                 <IonItem lines="none" className="footerButton">
                   <IonAvatar slot="start" className="footerIcon">
                     <IonIcon
-                      icon={logout}
+                      icon={logOut}
                       color="dark"
-                      size="large"
+                      mode="ios"
                       className="sideIcons"
                       onClick={() => signout()}
                     />
                   </IonAvatar>
-                  <IonLabel>Sign Out</IonLabel>
+                  <IonLabel>Sign-out</IonLabel>
                 </IonItem>
               </Link>
             </IonMenuToggle>

@@ -1,9 +1,18 @@
-import { IonButton, IonIcon, IonInput, IonItem, IonList } from "@ionic/react";
-import { lock, mail } from "ionicons/icons";
+import {
+  IonButton,
+  IonButtons,
+  IonCol,
+  IonGrid,
+  IonIcon,
+  IonInput,
+  IonItem,
+  IonList,
+  IonRow
+} from "@ionic/react";
+import { arrowBack, lock, mail } from "ionicons/icons";
 import React, { useState } from "react";
 import { useMutation } from "react-apollo";
 import { Link, Redirect } from "react-router-dom";
-import back_register from "../assets/images/back_register.svg";
 import Error from "../components/Error";
 import Loader from "../components/Loader";
 import { GET_USER_MUTATION } from "../graphql/Mutation";
@@ -29,7 +38,7 @@ const Signin: React.FC = () => {
   }
 
   if (signedin) {
-    return <Redirect to="/home" />;
+    return <Redirect to="/" />;
   }
 
   const signin = async () => {
@@ -61,52 +70,73 @@ const Signin: React.FC = () => {
   };
 
   return (
-    <IonList className="au-form">
-      {errors.response && <Error message={errors.response} />}
-      <IonItem className="textfield">
-        <IonInput
-          type="text"
-          value={email}
-          placeholder="Email address"
-          onIonChange={(e: any) => setEmail(e.target.value)}
-        />
-        <div className="textLabel" slot="start">
-          <IonIcon
-            icon={mail}
-            color="dark"
-            mode="ios"
-            className="textfieldIcon"
-          />
-        </div>
-      </IonItem>
-      <IonItem className="textfield">
-        <IonInput
-          type="password"
-          value={password}
-          onIonChange={(e: any) => setPassword(e.target.value)}
-          placeholder="Password"
-        />
-        <div className="textLabel" slot="start">
-          <IonIcon icon={lock} color="dark" className="textfieldIcon" />
-        </div>
-      </IonItem>
-      <IonItem className="textfield">
-        <IonButton
-          expand="full"
-          className="Registerbutton"
-          onClick={() => signin()}
+    <IonGrid>
+      <IonRow>
+        <IonCol
+          sizeSm={"8"}
+          offsetSm={"2"}
+          sizeMd={"6"}
+          offsetMd={"3"}
+          sizeLg={"4"}
+          offsetLg={"4"}
         >
-          SIGNIN
-        </IonButton>
-      </IonItem>
-      <Link
-        to={"/signup"}
-        style={{ textDecoration: "none", color: "black" }}
-        slot={"start"}
-      >
-        <img src={back_register} alt="register" />
-      </Link>
-    </IonList>
+          <IonList className="au-form">
+            {errors.response && <Error message={errors.response} />}
+            <IonItem className="textfield">
+              <IonInput
+                type="text"
+                value={email}
+                placeholder="Email address"
+                onIonChange={(e: any) => setEmail(e.target.value)}
+              />
+              <div className="textLabel" slot="start">
+                <IonIcon
+                  icon={mail}
+                  color="dark"
+                  mode="ios"
+                  className="textfieldIcon"
+                />
+              </div>
+            </IonItem>
+            <IonItem className="textfield">
+              <IonInput
+                type="password"
+                value={password}
+                onIonChange={(e: any) => setPassword(e.target.value)}
+                placeholder="Password"
+              />
+              <div className="textLabel" slot="start">
+                <IonIcon icon={lock} color="dark" className="textfieldIcon" />
+              </div>
+            </IonItem>
+            <IonItem className="textfield">
+              <IonButton
+                expand="full"
+                className="Registerbutton"
+                onClick={() => signin()}
+              >
+                Sign-in
+              </IonButton>
+            </IonItem>
+            <Link
+              to={"/signup"}
+              style={{ textDecoration: "none", color: "black" }}
+              slot={"start"}
+            >
+              <IonButtons>
+                <IonIcon
+                  icon={arrowBack}
+                  color="dark"
+                  mode="ios"
+                  size={"large"}
+                />{" "}
+                Sign-up
+              </IonButtons>
+            </Link>
+          </IonList>
+        </IonCol>
+      </IonRow>
+    </IonGrid>
   );
 };
 
