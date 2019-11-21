@@ -10,5 +10,6 @@
   margin-right: auto;
 }
 .ke-Taxi {
-  padding-inline-start: 27%;
+  text-align: center;
+  display: block;
 }

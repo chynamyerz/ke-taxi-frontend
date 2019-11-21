@@ -87,6 +87,7 @@ const Home: React.FC = () => {
                         icon={people}
                         className="iconicon"
                         size="large"
+                        mode="ios"
                       />
                       <p className="ridesharing">+ Group</p>
                     </IonCardContent>
