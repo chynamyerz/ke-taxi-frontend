@@ -6,15 +6,28 @@ import {
   IonGrid,
   IonIcon,
   IonItem,
+  IonLabel,
+  IonModal,
   IonRow,
+  IonSegment,
+  IonSegmentButton,
   IonSelect,
   IonSelectOption
 } from "@ionic/react";
-import { people, person } from "ionicons/icons";
-import React from "react";
+import { add, close, people, person } from "ionicons/icons";
+import React, { useState } from "react";
 import "./Home.css";
 
 const Home: React.FC = () => {
+  const [showModal, setShowModal] = useState(false);
+  const riders = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+  const [isActive, setisActive] = useState(false);
+
+  const listItems = riders.map(rider => (
+    <IonSegmentButton className="NumberButton">
+      <IonLabel>{rider}</IonLabel>
+    </IonSegmentButton>
+  ));
   return (
     <IonGrid style={{ height: "100%" }}>
       <IonRow style={{ height: "100%" }}>
@@ -26,7 +39,7 @@ const Home: React.FC = () => {
           sizeLg={"6"}
           offsetLg={"3"}
         >
-          <IonCard style={{ height: "30%" }}>
+          <IonCard style={{ marginBottom: "30%" }}>
             <IonCardContent>
               <IonRow>
                 <IonCol
@@ -37,7 +50,7 @@ const Home: React.FC = () => {
                   sizeLg={"6"}
                   offsetLg={"3"}
                 >
-                  <IonItem style={{ marginTop: "15%" }}>
+                  <IonItem>
                     <IonSelect placeholder="From" className="location">
                       <IonSelectOption value="f">Up Town</IonSelectOption>
                       <IonSelectOption value="m">Down Town</IonSelectOption>
@@ -60,7 +73,11 @@ const Home: React.FC = () => {
               <IonGrid className="options">
                 <IonRow>
                   <IonCol className="cardOption">
-                    <IonCard className="cardGroups active" button={true}>
+                    <IonCard
+                      onClick={() => setisActive(true)}
+                      className={isActive ? "cardGroups active" : "cardGroups"}
+                      button={true}
+                    >
                       <IonCardContent className="optionIcons">
                         <IonIcon icon={person} color="light" size="large" />
                         <p className="ridesharing">Me</p>
@@ -68,7 +85,11 @@ const Home: React.FC = () => {
                     </IonCard>
                   </IonCol>
                   <IonCol className="cardOption">
-                    <IonCard className="cardGroups" button={true}>
+                    <IonCard
+                      onClick={() => setisActive(true)}
+                      className={isActive ? "cardGroups active" : "cardGroups"}
+                      button={true}
+                    >
                       <IonCardContent className="optionIcons">
                         <IonIcon
                           icon={people}
@@ -81,7 +102,14 @@ const Home: React.FC = () => {
                     </IonCard>
                   </IonCol>
                   <IonCol className="cardOption">
-                    <IonCard className="cardGroups" button={true}>
+                    <IonCard
+                      onClick={() => {
+                        setShowModal(true);
+                        setisActive(true);
+                      }}
+                      className={isActive ? "cardGroups active" : "cardGroups"}
+                      button={true}
+                    >
                       <IonCardContent className="optionIcons">
                         <IonIcon
                           icon={people}
@@ -94,16 +122,39 @@ const Home: React.FC = () => {
                     </IonCard>
                   </IonCol>
                 </IonRow>
-                <IonRow style={{ marginTop: "10%" }}>
+                <IonRow style={{ marginTop: "5%" }}>
                   <p className="ridesharing">Ride with only Me</p>
                 </IonRow>
-                <IonRow style={{ marginTop: "12%" }}>
+                <IonRow style={{ marginTop: "5%" }}>
                   <IonCol>
                     <IonButton expand="full" className="CallTaxibutton">
                       CALL TAXI{" "}
                     </IonButton>
                   </IonCol>
                 </IonRow>
+                <IonModal cssClass="Model" isOpen={showModal}>
+                  <p className="popHeader">Pick the number of passagers</p>
+                  {/*-- Scrollable Segment --*/}
+                  <IonSegment className="picker" scrollable>
+                    {listItems}
+                  </IonSegment>
+                  <IonItem lines="none" className="ModelButtons">
+                    <IonButton
+                      slot="start"
+                      className="closeButton"
+                      onClick={() => setShowModal(false)}
+                    >
+                      <IonIcon icon={add} color="light" size="large" />
+                    </IonButton>
+                    <IonButton
+                      slot="end"
+                      className="closeButton"
+                      onClick={() => setShowModal(false)}
+                    >
+                      <IonIcon icon={close} color="light" size="large" />
+                    </IonButton>
+                  </IonItem>
+                </IonModal>
               </IonGrid>
             </IonCardContent>
           </IonCard>
