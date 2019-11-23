@@ -44,7 +44,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "generate:andriod": "yarn build && npx cap add android",
+    "generate:android": "yarn build && npx cap add android",
     "sync:android": "rm -r build && yarn build && npx cap sync",
     "test": "react-scripts test --env=jsdom --transformIgnorePatterns \"node_modules/(?!(@ionic|ionicons))/\"",
     "test:ci": "CI=true react-scripts test --env=jsdom --transformIgnorePatterns \"node_modules/(?!(@ionic|ionicons))/\"",
