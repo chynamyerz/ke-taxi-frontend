@@ -9,13 +9,13 @@ import {
   IonRow
 } from "@ionic/react";
 import { call, lock, mail, person, unlock } from "ionicons/icons";
+import { validate } from "isemail";
 import React, { useState } from "react";
 import { useMutation } from "react-apollo";
 import { Redirect } from "react-router";
 import Error from "../components/Error";
 import Loader from "../components/Loader";
 import { SIGNUP_MUTATION } from "../graphql/Mutation";
-
 import "./Signup.css";
 
 const Register: React.FC = () => {
@@ -23,25 +23,105 @@ const Register: React.FC = () => {
   const [email, setEmail] = useState("");
   const [cell, setCell] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({
+    cell: "",
+    confirmPassword: "",
     email: "",
+    name: "",
     password: "",
     response: ""
   });
-  const [confirmPassword, setConfirmPassword] = useState("");
 
-  const [signup, { data, error, loading }] = useMutation(SIGNUP_MUTATION, {
+  const validateSignupUserField = (signupUserInput: any) => {
+    const validationErrors: any = {};
+
+    // Check if name is not empty.
+    if (!name) {
+      validationErrors.email = "Name is required";
+    }
+
+    // Check if contact number is not empty.
+    if (!cell) {
+      validationErrors.email = "Contact number is required";
+    }
+
+    // Check if the submitted email address is valid.
+    if (
+      signupUserInput.email &&
+      !validate(signupUserInput.email, { minDomainAtoms: 2 })
+    ) {
+      validationErrors.email = "Email address is invalid";
+    }
+
+    // Check if the password is supplied.
+    if (!signupUserInput.password.length) {
+      validationErrors.password = "Passwor is required";
+    }
+
+    // Check if the password is secure enough.
+    if (signupUserInput.password && signupUserInput.password.length < 5) {
+      validationErrors.newPassword =
+        "Password should be at least 5 characters long";
+    }
+
+    // Check if passwords match
+    if (
+      signupUserInput.confirmPassword &&
+      signupUserInput.password !== signupUserInput.confirmPassword
+    ) {
+      validationErrors.confirmPassword = "Passwords do not match";
+    }
+
+    return validationErrors;
+  };
+
+  const [signup, { data, loading }] = useMutation(SIGNUP_MUTATION, {
     variables: { cell, email, name, password }
   });
 
-  if (error && !errors.response) {
-    setErrors({
-      ...errors,
-      response: error.message
-        .replace("GraphQL error: ", "")
-        .replace("Network error: ", "")
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+
+    // Validate the user input fields
+    const validationErrors: any = validateSignupUserField({
+      cell,
+      email,
+      name,
+      password
     });
-  }
+
+    setErrors(validationErrors);
+
+    // Check if there is an error, if there is abort signing up.
+    if (Object.keys(validationErrors).length > 0) {
+      return;
+    }
+
+    try {
+      signup();
+      setErrors({
+        cell: "",
+        confirmPassword: "",
+        email: "",
+        name: "",
+        password: "",
+        response: ""
+      });
+      setCell("");
+      setConfirmPassword("");
+      setEmail("");
+      setName("");
+      setPassword("");
+    } catch (error) {
+      setErrors({
+        ...errors,
+        response: error.message
+          .replace("GraphQL error: ", "")
+          .replace("Network error: ", "")
+      });
+    }
+  };
 
   if (loading) {
     if (loading) {
@@ -67,8 +147,9 @@ const Register: React.FC = () => {
           <p className="slogan">
             and explore the new way of using public taxis
           </p>
+          {errors.response && <Error message={errors.response} />}
           <IonList className="au-form">
-            {errors.response && <Error message={errors.response} />}
+            {errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
             <IonItem className="textfield">
               <IonInput
                 type="text"
@@ -80,6 +161,7 @@ const Register: React.FC = () => {
                 <IonIcon icon={person} color="dark" className="textfieldIcon" />
               </div>
             </IonItem>
+            {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
             <IonItem className="textfield">
               <IonInput
                 type="text"
@@ -96,6 +178,7 @@ const Register: React.FC = () => {
                 />
               </div>
             </IonItem>
+            {errors.cell && <p style={{ color: "red" }}>{errors.cell}</p>}
             <IonItem className="textfield">
               <IonInput
                 type="text"
@@ -107,6 +190,9 @@ const Register: React.FC = () => {
                 <IonIcon icon={call} color="dark" className="textfieldIcon" />
               </div>
             </IonItem>
+            {errors.password && (
+              <p style={{ color: "red" }}>{errors.password}</p>
+            )}
             <IonItem className="textfield">
               <IonInput
                 type="password"
@@ -118,12 +204,15 @@ const Register: React.FC = () => {
                 <IonIcon icon={unlock} color="dark" className="textfieldIcon" />
               </div>
             </IonItem>
+            {errors.confirmPassword && (
+              <p style={{ color: "red" }}>{errors.confirmPassword}</p>
+            )}
             <IonItem className="textfield">
               <IonInput
                 type="password"
                 value={confirmPassword}
                 onIonChange={(e: any) => setConfirmPassword(e.target.value)}
-                placeholder="Confirm Password"
+                placeholder="Confirm password"
               />
               <div className="textLabel" slot="start">
                 <IonIcon icon={lock} color="dark" className="textfieldIcon" />
@@ -133,7 +222,7 @@ const Register: React.FC = () => {
               <IonButton
                 expand="full"
                 className="Registerbutton"
-                onClick={() => signup()}
+                onClick={e => handleSubmit(e)}
               >
                 Sign-up
               </IonButton>

@@ -76,7 +76,7 @@ const App: React.FC = () => {
         <Navigation user={currentUser} />
         <IonContent scrollY={false} id={"main"}>
           {errors.response && <Error message={errors.response} />}
-          <Routes />
+          <Routes user={currentUser} />
         </IonContent>
       </IonPage>
     </IonApp>

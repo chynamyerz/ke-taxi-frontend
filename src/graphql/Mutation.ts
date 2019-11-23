@@ -16,6 +16,47 @@ export const SIGNUP_MUTATION = gql`
 `;
 
 /**
+ * Update user information
+ *
+ * parameters
+ * cell:
+ *      User's contact number
+ * email:
+ *      User's email address
+ * image:
+ *      User's url for the profile image
+ * name:
+ *      User's name
+ * password:
+ *      User's current password
+ * newPassword:
+ *      User's new password
+ */
+export const USER_UPDATE_MUTATION = gql`
+  mutation USER_UPDATE_MUTATION(
+    $cell: String
+    $email: String
+    $image: String
+    $name: String
+    $newPassword: String
+    $password: String!
+  ) {
+    updateUser(
+      cell: $cell
+      email: $email
+      image: $image
+      name: $name
+      newPassword: $newPassword
+      password: $password
+    ) {
+      id
+      name
+      email
+    }
+  }
+`;
+
+/**
  * Get currently logged in user.
  *
  * The following arguments must be supplied.

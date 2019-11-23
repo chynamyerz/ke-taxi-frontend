@@ -10,6 +10,7 @@ import {
   IonRow
 } from "@ionic/react";
 import { arrowBack, lock, mail } from "ionicons/icons";
+import { validate } from "isemail";
 import React, { useState } from "react";
 import { useMutation } from "react-apollo";
 import { Link, Redirect } from "react-router-dom";
@@ -28,20 +29,42 @@ const Signin: React.FC = () => {
     password: "",
     response: ""
   });
+
+  const validateSigninUserField = (signupUserInput: any) => {
+    const validationErrors: any = {};
+
+    // Check if the submitted email address is valid.
+    if (
+      signupUserInput.email &&
+      !validate(signupUserInput.email, { minDomainAtoms: 2 })
+    ) {
+      validationErrors.email = "Email address is invalid";
+    }
+
+    // Check if the password is supplied.
+    if (!signupUserInput.password.length) {
+      validationErrors.password = "Passwor is required";
+    }
+  };
+
   const [getUser, { loading }] = useMutation(GET_USER_MUTATION, {
     refetchQueries: [{ query: USER_QUERY }],
     variables: { email, password }
   });
 
-  if (loading) {
-    return <Loader message={"Signing in..."} />;
-  }
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
 
-  if (signedin) {
-    return <Redirect to="/" />;
-  }
+    // Validate the user input fields
+    const validationErrors: any = validateSigninUserField({ email, password });
 
-  const signin = async () => {
+    setErrors(validationErrors);
+
+    // Check if there is an error, if there is abort signing up.
+    if (Object.keys(validationErrors).length > 0) {
+      return;
+    }
+
     try {
       const loggedInUser = await getUser({
         variables: { email, password }
@@ -69,6 +92,14 @@ const Signin: React.FC = () => {
     }
   };
 
+  if (loading) {
+    return <Loader message={"Signing in..."} />;
+  }
+
+  if (signedin) {
+    return <Redirect to="/" />;
+  }
+
   return (
     <IonGrid>
       <IonRow>
@@ -80,8 +111,9 @@ const Signin: React.FC = () => {
           sizeLg={"4"}
           offsetLg={"4"}
         >
+          {errors.response && <Error message={errors.response} />}
           <IonList className="au-form">
-            {errors.response && <Error message={errors.response} />}
+            {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
             <IonItem className="textfield">
               <IonInput
                 type="text"
@@ -98,6 +130,9 @@ const Signin: React.FC = () => {
                 />
               </div>
             </IonItem>
+            {errors.password && (
+              <p style={{ color: "red" }}>{errors.password}</p>
+            )}
             <IonItem className="textfield">
               <IonInput
                 type="password"
@@ -113,7 +148,7 @@ const Signin: React.FC = () => {
               <IonButton
                 expand="full"
                 className="Registerbutton"
-                onClick={() => signin()}
+                onClick={e => handleSubmit(e)}
               >
                 Sign-in
               </IonButton>

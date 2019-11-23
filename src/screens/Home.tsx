@@ -26,7 +26,7 @@ const Home: React.FC = () => {
   const [isGroupActive, setisGroupActive] = useState(false);
 
   const listItems = riders.map(rider => (
-    <IonSegmentButton className="NumberButton">
+    <IonSegmentButton className="NumberButton" key={rider}>
       <IonLabel>{rider}</IonLabel>
     </IonSegmentButton>
   ));
@@ -58,6 +58,7 @@ const Home: React.FC = () => {
                       <IonSelectOption value="m">Down Town</IonSelectOption>
                     </IonSelect>
                   </IonItem>
+                  <br />
                   <IonItem className="toLocation">
                     <IonSelect placeholder="To" className="location">
                       <IonSelectOption value="f">Bus Stop 1</IonSelectOption>

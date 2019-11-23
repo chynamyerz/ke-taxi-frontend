@@ -1,18 +1,11 @@
 import {
-  IonButton,
   IonCard,
   IonCardContent,
   IonCardHeader,
   IonCol,
   IonContent,
   IonGrid,
-  IonIcon,
-  IonItem,
-  IonLabel,
-  IonModal,
-  IonRow,
-  IonSegment,
-  IonSegmentButton
+  IonRow
 } from "@ionic/react";
 import React from "react";
 import Pageinfo from "../components/PageInfo";

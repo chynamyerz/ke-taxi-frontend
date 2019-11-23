@@ -11,17 +11,7 @@ import {
   IonMenuToggle,
   IonToolbar
 } from "@ionic/react";
-import {
-  archive,
-  call,
-  checkmarkCircle,
-  contact,
-  home,
-  informationCircle,
-  logOut,
-  person,
-  time
-} from "ionicons/icons";
+import { contact, home, logOut, person, time } from "ionicons/icons";
 import React, { useState } from "react";
 import { useMutation } from "react-apollo";
 import { Link } from "react-router-dom";
@@ -89,39 +79,51 @@ const Navigation: React.FC<{ user: any }> = props => {
             </IonMenuToggle>
           </IonItem>
 
-          <IonItem lines="none">
-            <IonMenuToggle>
-              <Link
-                to={"/profile"}
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                <IonItem lines="none">
-                  <IonAvatar slot="start">
-                    <IonIcon icon={person} color="dark" className="sideIcons" />
-                  </IonAvatar>
+          {user && (
+            <IonItem lines="none">
+              <IonMenuToggle>
+                <Link
+                  to={"/profile"}
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  <IonItem lines="none">
+                    <IonAvatar slot="start">
+                      <IonIcon
+                        icon={person}
+                        color="dark"
+                        className="sideIcons"
+                      />
+                    </IonAvatar>
 
-                  <IonLabel>Profile</IonLabel>
-                </IonItem>
-              </Link>
-            </IonMenuToggle>
-          </IonItem>
+                    <IonLabel>Profile</IonLabel>
+                  </IonItem>
+                </Link>
+              </IonMenuToggle>
+            </IonItem>
+          )}
 
-          <IonItem>
-            <IonMenuToggle>
-              <Link
-                to={"/history"}
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                <IonItem lines="none">
-                  <IonAvatar slot="start">
-                    <IonIcon icon={time} color="dark" className="histroyIcon" />
-                  </IonAvatar>
+          {user && (
+            <IonItem>
+              <IonMenuToggle>
+                <Link
+                  to={"/history"}
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  <IonItem lines="none">
+                    <IonAvatar slot="start">
+                      <IonIcon
+                        icon={time}
+                        color="dark"
+                        className="histroyIcon"
+                      />
+                    </IonAvatar>
 
-                  <IonLabel>History</IonLabel>
-                </IonItem>
-              </Link>
-            </IonMenuToggle>
-          </IonItem>
+                    <IonLabel>History</IonLabel>
+                  </IonItem>
+                </Link>
+              </IonMenuToggle>
+            </IonItem>
+          )}
 
           <IonItem lines="none">
             <IonMenuToggle>
