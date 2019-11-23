@@ -53,10 +53,9 @@ const App: React.FC = () => {
             <IonMenuButton></IonMenuButton>
           </IonButtons>
           <Link to={"/"} style={{ textDecoration: "none", color: "black" }}>
-            <img src={Logo} alt="Ke-Taxi" />
-            <IonTitle
-              style={{ marginLeft: "auto", marginRight: "auto" }}
-            ></IonTitle>
+            <IonTitle className="ke-Taxi">
+              <img src={Logo} alt="Ke-Taxi" />
+            </IonTitle>
           </Link>
           {!currentUser && (
             <Link

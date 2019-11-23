@@ -15,10 +15,12 @@ import {
   archive,
   call,
   checkmarkCircle,
+  contact,
   home,
   informationCircle,
   logOut,
-  person
+  person,
+  time
 } from "ionicons/icons";
 import React, { useState } from "react";
 import { useMutation } from "react-apollo";
@@ -61,7 +63,7 @@ const Navigation: React.FC<{ user: any }> = props => {
         <IonToolbar className="titleBar">
           <IonItem lines="none" className="HeaderItems">
             <IonAvatar slot="start">
-              <IonIcon icon={person} color="ligh" size="large" mode="ios" />
+              <IonIcon icon={contact} color="ligh" size="large" mode="ios" />
             </IonAvatar>
 
             <IonLabel>
@@ -78,12 +80,7 @@ const Navigation: React.FC<{ user: any }> = props => {
               <Link to={"/"} style={{ textDecoration: "none", color: "black" }}>
                 <IonItem lines="none">
                   <IonAvatar slot="start">
-                    <IonIcon
-                      icon={home}
-                      color="dark"
-                      mode="ios"
-                      className="sideIcons"
-                    />
+                    <IonIcon icon={home} className="sideIcons" />
                   </IonAvatar>
 
                   <IonLabel>Home</IonLabel>
@@ -100,12 +97,7 @@ const Navigation: React.FC<{ user: any }> = props => {
               >
                 <IonItem lines="none">
                   <IonAvatar slot="start">
-                    <IonIcon
-                      icon={person}
-                      color="dark"
-                      mode="ios"
-                      className="sideIcons"
-                    />
+                    <IonIcon icon={person} color="dark" className="sideIcons" />
                   </IonAvatar>
 
                   <IonLabel>Profile</IonLabel>
@@ -114,23 +106,18 @@ const Navigation: React.FC<{ user: any }> = props => {
             </IonMenuToggle>
           </IonItem>
 
-          <IonItem lines="none">
+          <IonItem>
             <IonMenuToggle>
               <Link
-                to={"/contact"}
+                to={"/history"}
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <IonItem lines="none">
                   <IonAvatar slot="start">
-                    <IonIcon
-                      icon={call}
-                      color="dark"
-                      mode="ios"
-                      className="sideIcons"
-                    />
+                    <IonIcon icon={time} color="dark" className="histroyIcon" />
                   </IonAvatar>
 
-                  <IonLabel>Contact Us</IonLabel>
+                  <IonLabel>History</IonLabel>
                 </IonItem>
               </Link>
             </IonMenuToggle>
@@ -143,21 +130,23 @@ const Navigation: React.FC<{ user: any }> = props => {
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <IonItem lines="none">
-                  <IonAvatar slot="start">
-                    <IonIcon
-                      icon={informationCircle}
-                      color="dark"
-                      mode="ios"
-                      className="sideIcons"
-                    />
-                  </IonAvatar>
-
-                  <IonLabel>About Us</IonLabel>
+                  <IonLabel color="medium">About Us</IonLabel>
                 </IonItem>
               </Link>
             </IonMenuToggle>
           </IonItem>
-
+          <IonItem lines="none">
+            <IonMenuToggle>
+              <Link
+                to={"/contact"}
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <IonItem lines="none">
+                  <IonLabel color="medium">Contact Us</IonLabel>
+                </IonItem>
+              </Link>
+            </IonMenuToggle>
+          </IonItem>
           <IonItem lines="none">
             <IonMenuToggle>
               <Link
@@ -165,38 +154,7 @@ const Navigation: React.FC<{ user: any }> = props => {
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <IonItem lines="none">
-                  <IonAvatar slot="start">
-                    <IonIcon
-                      icon={checkmarkCircle}
-                      color="dark"
-                      mode="ios"
-                      className="sideIcons"
-                    />
-                  </IonAvatar>
-
-                  <IonLabel>Policy</IonLabel>
-                </IonItem>
-              </Link>
-            </IonMenuToggle>
-          </IonItem>
-
-          <IonItem lines="none">
-            <IonMenuToggle>
-              <Link
-                to={"/history"}
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                <IonItem lines="none">
-                  <IonAvatar slot="start">
-                    <IonIcon
-                      icon={archive}
-                      color="dark"
-                      mode="ios"
-                      className="sideIcons"
-                    />
-                  </IonAvatar>
-
-                  <IonLabel>History</IonLabel>
+                  <IonLabel color="medium">Policy</IonLabel>
                 </IonItem>
               </Link>
             </IonMenuToggle>

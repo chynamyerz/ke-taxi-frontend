@@ -23,8 +23,17 @@
 .sideIcons {
   width: 28px;
   height: 28px;
-  margin-top: 10px;
+  margin-top: 6px;
+  fill: #fff;
+  stroke-width: 7%;
+  stroke: black;
 }
+.histroyIcon {
+  width: 28px;
+  height: 28px;
+  margin-top: 6px;
+}
+
 .footerButton {
   --padding-start: 0px;
   --background: #daddde;
