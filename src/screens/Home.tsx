@@ -21,7 +21,9 @@ import "./Home.css";
 const Home: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const riders = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-  const [isActive, setisActive] = useState(false);
+  const [isMeActive, setisMeActive] = useState(false);
+  const [isPersonActive, setisPersonActive] = useState(false);
+  const [isGroupActive, setisGroupActive] = useState(false);
 
   const listItems = riders.map(rider => (
     <IonSegmentButton className="NumberButton">
@@ -74,8 +76,14 @@ const Home: React.FC = () => {
                 <IonRow>
                   <IonCol className="cardOption">
                     <IonCard
-                      onClick={() => setisActive(true)}
-                      className={isActive ? "cardGroups active" : "cardGroups"}
+                      onClick={() => {
+                        setisMeActive(true);
+                        setisGroupActive(false);
+                        setisPersonActive(false);
+                      }}
+                      className={
+                        isMeActive ? "cardGroups active" : "cardGroups"
+                      }
                       button={true}
                     >
                       <IonCardContent className="optionIcons">
@@ -86,8 +94,14 @@ const Home: React.FC = () => {
                   </IonCol>
                   <IonCol className="cardOption">
                     <IonCard
-                      onClick={() => setisActive(true)}
-                      className={isActive ? "cardGroups active" : "cardGroups"}
+                      onClick={() => {
+                        setisPersonActive(true);
+                        setisMeActive(false);
+                        setisGroupActive(false);
+                      }}
+                      className={
+                        isPersonActive ? "cardGroups active" : "cardGroups"
+                      }
                       button={true}
                     >
                       <IonCardContent className="optionIcons">
@@ -105,9 +119,13 @@ const Home: React.FC = () => {
                     <IonCard
                       onClick={() => {
                         setShowModal(true);
-                        setisActive(true);
+                        setisGroupActive(true);
+                        setisMeActive(false);
+                        setisPersonActive(false);
                       }}
-                      className={isActive ? "cardGroups active" : "cardGroups"}
+                      className={
+                        isGroupActive ? "cardGroups active" : "cardGroups"
+                      }
                       button={true}
                     >
                       <IonCardContent className="optionIcons">
