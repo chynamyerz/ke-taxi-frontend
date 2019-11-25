@@ -59,7 +59,10 @@
   --border-radius: 10px;
   color: #fff;
 }
-.iconicon {
+.Activeicon {
+  fill: #fff;
+}
+.NonActiveIcon {
   fill: #f4911e;
 }
 .Model {

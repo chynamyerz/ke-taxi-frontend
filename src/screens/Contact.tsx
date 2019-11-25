@@ -22,24 +22,14 @@ const Contact: React.FC = () => {
             <IonCard className="Grid">
               <IonItem lines="none">
                 <IonAvatar slot="start">
-                  <IonIcon
-                    icon={call}
-                    color="dark"
-                    size="large"
-                    className="sideIcons"
-                  />
+                  <IonIcon icon={call} color="dark" size="large" />
                 </IonAvatar>
 
                 <IonLabel>071 536 2589</IonLabel>
               </IonItem>
               <IonItem lines="none">
                 <IonAvatar slot="start">
-                  <IonIcon
-                    icon={mail}
-                    color="dark"
-                    size="large"
-                    className="sideIcons"
-                  />
+                  <IonIcon icon={mail} color="dark" size="large" />
                 </IonAvatar>
 
                 <IonLabel>info@ke-taxi.co.za</IonLabel>
@@ -47,12 +37,7 @@ const Contact: React.FC = () => {
 
               <IonItem lines="none">
                 <IonAvatar slot="start">
-                  <IonIcon
-                    icon={logoFacebook}
-                    color="dark"
-                    size="large"
-                    className="sideIcons"
-                  />
+                  <IonIcon icon={logoFacebook} color="dark" size="large" />
                 </IonAvatar>
 
                 <IonLabel>ke-taxi@facebook.com</IonLabel>
@@ -60,12 +45,7 @@ const Contact: React.FC = () => {
 
               <IonItem lines="none">
                 <IonAvatar slot="start">
-                  <IonIcon
-                    icon={logoTwitter}
-                    color="dark"
-                    size="large"
-                    className="sideIcons"
-                  />
+                  <IonIcon icon={logoTwitter} color="dark" size="large" />
                 </IonAvatar>
 
                 <IonLabel>@ke_taxi</IonLabel>

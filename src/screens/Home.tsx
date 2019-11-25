@@ -24,9 +24,17 @@ const Home: React.FC = () => {
   const [isMeActive, setisMeActive] = useState(false);
   const [isPersonActive, setisPersonActive] = useState(false);
   const [isGroupActive, setisGroupActive] = useState(false);
-
+  const [rideWith, setrideWith] = useState(0);
+  const [RidersValue, setRidersValue] = useState(0);
   const listItems = riders.map(rider => (
-    <IonSegmentButton className="NumberButton" key={rider}>
+    <IonSegmentButton
+      onClick={() => {
+        setRidersValue(rider);
+        setrideWith(RidersValue);
+      }}
+      className="NumberButton"
+      key={rider}
+    >
       <IonLabel>{rider}</IonLabel>
     </IonSegmentButton>
   ));
@@ -81,6 +89,8 @@ const Home: React.FC = () => {
                         setisMeActive(true);
                         setisGroupActive(false);
                         setisPersonActive(false);
+                        setrideWith(1);
+                        setRidersValue(1);
                       }}
                       className={
                         isMeActive ? "cardGroups active" : "cardGroups"
@@ -88,13 +98,19 @@ const Home: React.FC = () => {
                       button={true}
                     >
                       <IonCardContent className="optionIcons">
-                        <IonIcon icon={person} color="light" size="large" />
+                        <IonIcon
+                          icon={person}
+                          className={
+                            isMeActive ? "Activeicon" : "NonActiveIcon"
+                          }
+                          size="large"
+                        />
                         <p className="ridesharing">Me</p>
                       </IonCardContent>
                     </IonCard>
                   </IonCol>
                   <IonCol className="cardOption">
-                    <IonCard
+                    {/* <IonCard
                       onClick={() => {
                         setisPersonActive(true);
                         setisMeActive(false);
@@ -109,12 +125,12 @@ const Home: React.FC = () => {
                         <IonIcon
                           icon={people}
                           mode="md"
-                          className="iconicon"
+                          className={isPersonActive ? "Activeicon" :"NonActiveIcon"}
                           size="large"
                         />
                         <p className="ridesharing">+1 person</p>
                       </IonCardContent>
-                    </IonCard>
+                    </IonCard> */}
                   </IonCol>
                   <IonCol className="cardOption">
                     <IonCard
@@ -132,7 +148,9 @@ const Home: React.FC = () => {
                       <IonCardContent className="optionIcons">
                         <IonIcon
                           icon={people}
-                          className="iconicon"
+                          className={
+                            isGroupActive ? "Activeicon" : "NonActiveIcon"
+                          }
                           size="large"
                           mode="ios"
                         />
@@ -142,7 +160,11 @@ const Home: React.FC = () => {
                   </IonCol>
                 </IonRow>
                 <IonRow style={{ marginTop: "5%" }}>
-                  <p className="ridesharing">Ride with only Me</p>
+                  <p className="ridesharing">
+                    {RidersValue > 1
+                      ? "Ride For " + RidersValue + " people"
+                      : "Ride For Only Me"}
+                  </p>
                 </IonRow>
                 <IonRow style={{ marginTop: "5%" }}>
                   <IonCol>
