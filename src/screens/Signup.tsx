@@ -37,13 +37,18 @@ const Register: React.FC = () => {
     const validationErrors: any = {};
 
     // Check if name is not empty.
-    if (!name) {
-      validationErrors.email = "Name is required";
+    if (!signupUserInput.name) {
+      validationErrors.name = "Name is required";
     }
 
     // Check if contact number is not empty.
-    if (!cell) {
-      validationErrors.email = "Contact number is required";
+    if (!signupUserInput.cell) {
+      validationErrors.cell = "Contact number is required";
+    }
+
+    // Check if email address is not empty.
+    if (!signupUserInput.email) {
+      validationErrors.email = "Email address is required";
     }
 
     // Check if the submitted email address is valid.
@@ -61,7 +66,7 @@ const Register: React.FC = () => {
 
     // Check if the password is secure enough.
     if (signupUserInput.password && signupUserInput.password.length < 5) {
-      validationErrors.newPassword =
+      validationErrors.password =
         "Password should be at least 5 characters long";
     }
 
@@ -86,6 +91,7 @@ const Register: React.FC = () => {
     // Validate the user input fields
     const validationErrors: any = validateSignupUserField({
       cell,
+      confirmPassword,
       email,
       name,
       password

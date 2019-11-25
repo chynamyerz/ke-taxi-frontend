@@ -33,6 +33,11 @@ const Signin: React.FC = () => {
   const validateSigninUserField = (signupUserInput: any) => {
     const validationErrors: any = {};
 
+    // Check if email address is not empty.
+    if (!signupUserInput.email) {
+      validationErrors.email = "Email address is required";
+    }
+
     // Check if the submitted email address is valid.
     if (
       signupUserInput.email &&
@@ -45,6 +50,8 @@ const Signin: React.FC = () => {
     if (!signupUserInput.password.length) {
       validationErrors.password = "Passwor is required";
     }
+
+    return validationErrors;
   };
 
   const [getUser, { loading }] = useMutation(GET_USER_MUTATION, {

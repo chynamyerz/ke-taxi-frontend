@@ -22,15 +22,12 @@ const Home: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const riders = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   const [isMeActive, setisMeActive] = useState(false);
-  const [isPersonActive, setisPersonActive] = useState(false);
   const [isGroupActive, setisGroupActive] = useState(false);
-  const [rideWith, setrideWith] = useState(0);
   const [RidersValue, setRidersValue] = useState(0);
   const listItems = riders.map(rider => (
     <IonSegmentButton
       onClick={() => {
         setRidersValue(rider);
-        setrideWith(RidersValue);
       }}
       className="NumberButton"
       key={rider}
@@ -88,8 +85,6 @@ const Home: React.FC = () => {
                       onClick={() => {
                         setisMeActive(true);
                         setisGroupActive(false);
-                        setisPersonActive(false);
-                        setrideWith(1);
                         setRidersValue(1);
                       }}
                       className={
@@ -109,36 +104,13 @@ const Home: React.FC = () => {
                       </IonCardContent>
                     </IonCard>
                   </IonCol>
-                  <IonCol className="cardOption">
-                    {/* <IonCard
-                      onClick={() => {
-                        setisPersonActive(true);
-                        setisMeActive(false);
-                        setisGroupActive(false);
-                      }}
-                      className={
-                        isPersonActive ? "cardGroups active" : "cardGroups"
-                      }
-                      button={true}
-                    >
-                      <IonCardContent className="optionIcons">
-                        <IonIcon
-                          icon={people}
-                          mode="md"
-                          className={isPersonActive ? "Activeicon" :"NonActiveIcon"}
-                          size="large"
-                        />
-                        <p className="ridesharing">+1 person</p>
-                      </IonCardContent>
-                    </IonCard> */}
-                  </IonCol>
+
                   <IonCol className="cardOption">
                     <IonCard
                       onClick={() => {
                         setShowModal(true);
                         setisGroupActive(true);
                         setisMeActive(false);
-                        setisPersonActive(false);
                       }}
                       className={
                         isGroupActive ? "cardGroups active" : "cardGroups"
