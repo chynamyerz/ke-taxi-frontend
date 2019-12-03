@@ -12,6 +12,11 @@ import Signup from "./screens/Signup";
 
 const Routes: React.FC<{ user: any }> = props => {
   const { user } = props;
+  const isDriver = !user
+    ? false
+    : user.roles.find((role: any) => role === "DRIVER");
+
+  console.log(user, isDriver);
 
   const ProtectedRoute = ({
     component: Component,
@@ -39,7 +44,13 @@ const Routes: React.FC<{ user: any }> = props => {
 
   return (
     <Switch>
-      <Route exact path="/" component={Home} />
+      <Route
+        exact
+        path="/"
+        component={() => {
+          return <Home isDriver={isDriver} />;
+        }}
+      />
       <ProtectedRoute
         signedInUser={user}
         exact

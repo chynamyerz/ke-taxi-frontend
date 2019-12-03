@@ -1,12 +1,10 @@
 import { IonCol, IonGrid, IonRow } from "@ionic/react";
-import { add, close, people, person, disc } from "ionicons/icons";
-import React, { useState } from "react";
-import Location from "../components/Location";
+import React from "react";
+import Request from "../components/Request";
 import Riders from "../components/Riders";
 
-const Home: React.FC = () => {
-  const [RidersValue, setRidersValue] = useState(0);
-
+const Home: React.FC<{ isDriver: boolean }> = props => {
+  const { isDriver } = props;
   return (
     <IonGrid style={{ height: "100%" }}>
       <IonRow style={{ height: "100%" }}>
@@ -18,11 +16,26 @@ const Home: React.FC = () => {
           sizeLg={"6"}
           offsetLg={"3"}
         >
-          <Location></Location>
-          <Riders
-            RidersValue={RidersValue}
-            setRidersValue={setRidersValue}
-          ></Riders>
+          {isDriver ? (
+            <div>
+              <h1 style={{ textAlign: "center" }}>Ride requests</h1>
+              <Request
+                request={{
+                  price: 50,
+                  riders: 1,
+                  distance: 100,
+                  time: "10:10AM"
+                }}
+              />
+            </div>
+          ) : (
+            <div>
+              <h1 style={{ textAlign: "center" }}>
+                Ride a public taxi in style
+              </h1>
+              <Riders />
+            </div>
+          )}
         </IonCol>
       </IonRow>
     </IonGrid>

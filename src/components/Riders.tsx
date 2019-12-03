@@ -1,28 +1,25 @@
 import {
-  IonCard,
-  IonCardHeader,
-  IonCardTitle,
-  IonCardContent,
-  IonGrid,
-  IonRow,
-  IonCol,
-  IonIcon,
   IonButton,
-  IonModal,
-  IonSegment,
+  IonCard,
+  IonCardContent,
+  IonCol,
+  IonGrid,
+  IonIcon,
   IonItem,
+  IonLabel,
+  IonModal,
+  IonRow,
+  IonSegment,
   IonSegmentButton,
-  IonLabel
+  IonSelect,
+  IonSelectOption
 } from "@ionic/react";
+import { add, close, people, person } from "ionicons/icons";
 import React, { useState } from "react";
-import { person, people, add, close } from "ionicons/icons";
 import "./Riders.css";
 
-const Riders: React.FC<{
-  RidersValue: Number;
-  setRidersValue: Function;
-}> = props => {
-  const { RidersValue, setRidersValue } = props;
+const Riders: React.FC = () => {
+  const [RidersValue, setRidersValue] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [isMeActive, setisMeActive] = useState(false);
   const [isGroupActive, setisGroupActive] = useState(false);
@@ -40,12 +37,44 @@ const Riders: React.FC<{
     </IonSegmentButton>
   ));
   return (
-    <IonCard className="riders" style={{ height: "50%" }}>
+    <IonCard className="riders">
       <IonCardContent>
-        <h2 className="ridesharing">Ride sharing :</h2>
-        <IonGrid className="options">
+        <IonGrid>
+          <h2 className="ridesharing">From where to :</h2>
           <IonRow>
-            <IonCol className="cardOption">
+            <IonCol
+              sizeSm={"10"}
+              offsetSm={"1"}
+              sizeMd={"8"}
+              offsetMd={"2"}
+              sizeLg={"6"}
+              offsetLg={"3"}
+            >
+              <IonItem>
+                <IonSelect placeholder="From" className="location">
+                  <IonSelectOption value="f">Up Town</IonSelectOption>
+                  <IonSelectOption value="m">Down Town</IonSelectOption>
+                </IonSelect>
+              </IonItem>
+              <br />
+              <IonItem className="toLocation">
+                <IonSelect placeholder="To" className="location">
+                  <IonSelectOption value="f">Bus Stop 1</IonSelectOption>
+                  <IonSelectOption value="m">Taxi Rank</IonSelectOption>
+                </IonSelect>
+              </IonItem>
+            </IonCol>
+          </IonRow>
+          <h2 className="ridesharing">Ride sharing :</h2>
+          <IonRow>
+            <IonCol
+              sizeSm={"10"}
+              offsetSm={"1"}
+              sizeMd={"8"}
+              offsetMd={"2"}
+              sizeLg={"6"}
+              offsetLg={"3"}
+            >
               <IonCard
                 onClick={() => {
                   setisMeActive(true);
@@ -66,7 +95,14 @@ const Riders: React.FC<{
               </IonCard>
             </IonCol>
 
-            <IonCol className="cardOption">
+            <IonCol
+              sizeSm={"10"}
+              offsetSm={"1"}
+              sizeMd={"8"}
+              offsetMd={"2"}
+              sizeLg={"6"}
+              offsetLg={"3"}
+            >
               <IonCard
                 onClick={() => {
                   setShowModal(true);
@@ -96,7 +132,14 @@ const Riders: React.FC<{
             </p>
           </IonRow>
           <IonRow style={{ marginTop: "5%" }}>
-            <IonCol>
+            <IonCol
+              sizeSm={"10"}
+              offsetSm={"1"}
+              sizeMd={"8"}
+              offsetMd={"2"}
+              sizeLg={"6"}
+              offsetLg={"3"}
+            >
               <IonButton expand="full" className="CallTaxibutton">
                 CALL TAXI{" "}
               </IonButton>

@@ -1,41 +1,36 @@
 import {
+  IonButton,
   IonCard,
+  IonCardContent,
   IonCardHeader,
   IonCardTitle,
-  IonCardContent,
-  IonGrid,
-  IonRow,
   IonCol,
-  IonList,
+  IonGrid,
+  IonIcon,
   IonItem,
   IonLabel,
-  IonIcon,
-  IonButton
+  IonList,
+  IonRow
 } from "@ionic/react";
+import { pin, radioButtonOn } from "ionicons/icons";
 import React from "react";
-import { radioButtonOn, pin } from "ionicons/icons";
 
-const Request: React.FC<{
-  Price: string;
-  Time: string;
-  Riders: string;
-  Distance: string;
-}> = props => {
-  const { Price, Time, Riders, Distance } = props;
+const Request: React.FC<{ request: any }> = props => {
+  const { request } = props;
   return (
     <IonCard>
       <IonCardHeader style={{ textAlign: "center" }}>
-        <IonCardTitle>R {Price}</IonCardTitle>
+        <IonCardTitle>R {request.price}</IonCardTitle>
       </IonCardHeader>
 
       <IonCardContent>
         <IonGrid style={{ textAlign: "center" }}>
           <IonRow>
-            <IonCol size="4">{Time}</IonCol>
+            <IonCol size="4">{request.time}</IonCol>
 
-            <IonCol size="4">{Riders} People</IonCol>
+            <IonCol size="4">{request.riders} People</IonCol>
 
-            <IonCol size="4">{Distance} km</IonCol>
+            <IonCol size="4">{request.distance} km</IonCol>
           </IonRow>
         </IonGrid>
         <IonList>

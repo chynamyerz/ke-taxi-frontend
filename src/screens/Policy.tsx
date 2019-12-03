@@ -9,7 +9,7 @@ import {
 } from "@ionic/react";
 import React from "react";
 import Pageinfo from "../components/PageInfo";
-import Request from "../components/Request";
+
 const Policy: React.FC = () => {
   return (
     <IonContent>

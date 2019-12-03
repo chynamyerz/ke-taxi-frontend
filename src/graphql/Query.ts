@@ -7,6 +7,7 @@ export const USER_QUERY = gql`
       cell
       email
       name
+      roles
     }
   }
 `;
@@ -18,6 +19,7 @@ export const USERS_QUERY = gql`
       cell
       email
       name
+      roles
     }
   }
 `;
