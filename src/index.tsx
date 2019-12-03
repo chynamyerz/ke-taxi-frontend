@@ -14,11 +14,16 @@ import App from "./App";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 
+import { resolvers, typeDefs } from "./resolvers";
+
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: createHttpLink({
-    uri: "link/to/api"
-  })
+    credentials: "include",
+    uri: process.env.REACT_APP_API_URI
+  }),
+  resolvers,
+  typeDefs
 });
 
 ReactDOM.render(

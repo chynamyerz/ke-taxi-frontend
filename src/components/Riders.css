@@ -1,0 +1,98 @@
+.riders {
+  background-color: #2a2e43;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 10%;
+}
+.ridesharing {
+  color: #fff;
+}
+.options {
+  padding-inline-start: 0px;
+}
+.cardOption {
+  padding-inline-start: 0px;
+  padding-inline-end: 0px;
+}
+.CardInside {
+  margin-left: 0px;
+  margin-right: 0px;
+  -webkit-margin-start: 0px;
+  margin-inline-start: 0px;
+  -webkit-margin-end: 0px;
+  margin-inline-end: 0px;
+}
+.cardGroups {
+  margin-left: 0px;
+  margin-right: 0px;
+  -webkit-margin-start: 0px;
+  margin-inline-start: 2px;
+  -webkit-margin-end: 2px;
+  margin-inline-end: 2px;
+  background-color: #353a50;
+}
+.active {
+  background-color: #f4911e;
+}
+.optionIcons {
+  margin: auto auto;
+  text-align: center;
+  align-items: center;
+}
+.CallTaxibutton {
+  --background-activated: #f4911e;
+  --background: #f4911e;
+  margin-top: 15px;
+  height: 42px;
+  --border-radius: 10px;
+  color: #fff;
+}
+.Activeicon {
+  fill: #fff;
+}
+.NonActiveIcon {
+  fill: #f4911e;
+}
+.Model {
+  --height: 35%;
+  --width: 75%;
+  --border-radius: 4%;
+  --background: #2a2e43;
+}
+.closeButton {
+  width: 40px;
+  height: 35px;
+  --background: #f4911e;
+  --color: #2a2e43;
+}
+.ModelButtons {
+  padding-inline-start: 0;
+  --background: #2a2e43;
+  --padding-bottom: 10px;
+}
+.picker {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.NumberButton {
+  --padding-end: 1px;
+  --padding-start: 1px;
+  color: #fff;
+  --color-checked: #fff;
+  --border-radius: 50%;
+  --background-checked: #f4911e;
+  border-left-width: 1px;
+  border-bottom-left-radius: var(--border-radius);
+  border-top-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  min-width: 4em;
+  max-width: 12em;
+  min-height: 4em;
+}
+.popHeader {
+  color: #fff;
+  text-align: center;
+}

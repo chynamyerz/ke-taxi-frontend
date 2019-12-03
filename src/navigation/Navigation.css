@@ -1,0 +1,50 @@
+.titleBar {
+  background-image: url("../assets/images/BackgroundSide.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 200px;
+  --opacity: 0 !important;
+  --padding-start: 0px;
+  --padding-end: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-inline-start: 0px;
+  padding-inline-end: 0px;
+  text-align: center;
+}
+.HeaderItems {
+  --background: "transparent";
+  padding-top: 60px;
+  padding-left: 30px;
+  color: #fff;
+}
+
+.sideIcons {
+  width: 28px;
+  height: 28px;
+  margin-top: 6px;
+  fill: #fff;
+  stroke-width: 7%;
+  stroke: black;
+}
+.histroyIcon {
+  width: 28px;
+  height: 28px;
+  margin-top: 6px;
+}
+
+.footerButton {
+  --padding-start: 0px;
+  --background: #daddde;
+}
+.footerIcon {
+  background: #bfbfbf;
+  --border-radius: 0%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  min-height: 56px;
+  min-width: 56px;
+  text-align: center;
+  padding-top: 10px;
+}

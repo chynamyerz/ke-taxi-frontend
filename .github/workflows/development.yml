@@ -40,7 +40,7 @@ jobs:
       - run: |
           yarn install
           yarn lint
-          yarn test
+          yarn test:ci
         shell: bash
 
   # job2:

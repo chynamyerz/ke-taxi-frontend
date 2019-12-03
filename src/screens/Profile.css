@@ -1,0 +1,41 @@
+.textfield {
+  --border-width: 1px 1px 1px 1px;
+  --padding-start: 0px;
+  --inner-padding-end: 0px;
+  --inner-border-width: 0px 0px 0px 0px;
+  margin-bottom: 20px;
+}
+.textLabel {
+  background-color: #f4911e;
+  width: 45px;
+  min-height: 50px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-inline-end: 5px;
+  text-align: center;
+  padding-top: 10px;
+}
+.textfieldIcon {
+  width: 28px;
+  height: 28px;
+}
+.Registerbutton {
+  min-height: 50px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: 100%;
+  --background-activated: #f4911e;
+  --background: #f4911e;
+  color: black;
+  text-align: center;
+}
+.footer::before {
+  content: none;
+}
+.FooterCard {
+  min-height: 370px;
+}

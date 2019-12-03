@@ -4,5 +4,13 @@
   "bundledWebRuntime": false,
   "npmClient": "yarn",
   "webDir": "build",
-  "cordova": {}
+  "server": {
+    "url": "https://ke-taxi.herokuapp.com",
+    "hostname": "app",
+    "iosScheme": "ionic",
+    "androidScheme": "http",
+    "allowNavigation": [
+      "https://ke-taxi.herokuapp.com/"
+    ]
+  }
 }

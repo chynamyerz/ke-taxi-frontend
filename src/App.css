@@ -1,3 +1,16 @@
 .App {
   text-align: center;
 }
+.topHeader {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.toolbar-title {
+  margin-left: auto;
+  margin-right: auto;
+}
+.ke-Taxi {
+  margin-top: 2%;
+  text-align: center;
+  display: block;
+}
