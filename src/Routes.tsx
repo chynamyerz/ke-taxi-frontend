@@ -57,6 +57,7 @@ const Routes: React.FC<{ user: any }> = props => {
       <Route exact path="/policy" component={Policy} />
       <Route exact path="/signin" component={Signin} />
       <Route exact path="/signup" component={Signup} />
+
       <Route
         exact
         path="*"

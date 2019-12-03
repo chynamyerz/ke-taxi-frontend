@@ -3,18 +3,18 @@
   padding-inline-start: 0px;
   max-width: 100%;
 }
-.leftSvg {
-  width: 10px;
-  min-height: 60px;
-  margin: 0;
-  max-width: 7%;
-}
+
 .toLocation {
   --inner-border-width: 0px 0px 0px 0px;
   --border-width: 0 0 0 0;
 }
 .riders {
   background-color: #2a2e43;
+  width: 94%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 .ridesharing {
   color: #fff;
@@ -105,4 +105,16 @@
 .popHeader {
   color: #fff;
   text-align: center;
+}
+.from_icon {
+  fill: lime;
+}
+.to_icon {
+  display: inline-block;
+  vertical-align: bottom;
+}
+.vl {
+  margin-left: 40%;
+  border-left: 2px dotted grey;
+  height: 60%;
 }

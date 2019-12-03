@@ -14,7 +14,7 @@ import {
   IonSelect,
   IonSelectOption
 } from "@ionic/react";
-import { add, close, people, person } from "ionicons/icons";
+import { add, close, people, person, disc } from "ionicons/icons";
 import React, { useState } from "react";
 import "./Home.css";
 
@@ -46,15 +46,20 @@ const Home: React.FC = () => {
           sizeLg={"6"}
           offsetLg={"3"}
         >
-          <IonCard style={{ marginBottom: "30%" }}>
+          <IonCard style={{ marginBottom: "5em" }}>
             <IonCardContent>
               <IonRow>
+                <IonCol size="1" style={{ paddingTop: "1.3em" }}>
+                  <IonIcon icon={disc} className="from_icon" size="small" />
+                  <div className="vl"></div>
+                  <IonIcon icon={disc} className="to_icon" size="small" />
+                </IonCol>
                 <IonCol
                   sizeSm={"10"}
                   offsetSm={"1"}
                   sizeMd={"8"}
                   offsetMd={"2"}
-                  sizeLg={"6"}
+                  sizeLg={"10"}
                   offsetLg={"3"}
                 >
                   <IonItem>
@@ -75,7 +80,7 @@ const Home: React.FC = () => {
             </IonCardContent>
           </IonCard>
 
-          <IonCard className="riders" style={{ height: "65%" }}>
+          <IonCard className="riders" style={{ height: "50%" }}>
             <IonCardContent>
               <h2 className="ridesharing">Ride sharing :</h2>
               <IonGrid className="options">
