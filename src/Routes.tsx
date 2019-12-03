@@ -16,8 +16,6 @@ const Routes: React.FC<{ user: any }> = props => {
     ? false
     : user.roles.find((role: any) => role === "DRIVER");
 
-  console.log(user, isDriver);
-
   const ProtectedRoute = ({
     component: Component,
     signedInUser,

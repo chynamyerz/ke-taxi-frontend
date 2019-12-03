@@ -21,9 +21,9 @@ const Home: React.FC<{ isDriver: boolean }> = props => {
               <h1 style={{ textAlign: "center" }}>Ride requests</h1>
               <Request
                 request={{
+                  distance: 100,
                   price: 50,
                   riders: 1,
-                  distance: 100,
                   time: "10:10AM"
                 }}
               />
