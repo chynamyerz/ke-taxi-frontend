@@ -332,3 +332,8 @@ jobs:
   # TODO UPDATE
   # Add job2 that is responsible for deploying to the production+20 and it requires job1 to have ran successfully
 ```
+
+# adding the splash scree and display
+
+go to ke-taxi-frontend\android\app\src\main\res replace the pictures there with the one on ke-taxi-frontend\src\assets\images,
+the pictures are categorised according to size, replace the default pictures with the new one accordingly.

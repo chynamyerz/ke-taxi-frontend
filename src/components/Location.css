@@ -1,0 +1,23 @@
+.location {
+  width: 100%;
+  padding-inline-start: 0px;
+  max-width: 100%;
+}
+
+.toLocation {
+  --inner-border-width: 0px 0px 0px 0px;
+  --border-width: 0 0 0 0;
+}
+
+.from_icon {
+  fill: lime;
+}
+.to_icon {
+  display: inline-block;
+  vertical-align: bottom;
+}
+.vl {
+  margin-left: 40%;
+  border-left: 2px dotted grey;
+  height: 60%;
+}
