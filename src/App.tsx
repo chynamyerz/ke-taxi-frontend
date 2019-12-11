@@ -7,9 +7,10 @@ import {
   IonMenuButton,
   IonPage,
   IonTitle,
-  IonToolbar
+  IonToolbar,
+  IonPopover
 } from "@ionic/react";
-import { logIn } from "ionicons/icons";
+import { logIn, notificationsOutline } from "ionicons/icons";
 import React, { useState } from "react";
 import { useQuery } from "react-apollo";
 import { Link } from "react-router-dom";
@@ -24,6 +25,7 @@ import Routes from "./Routes";
 const App: React.FC = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [errors, setErrors] = useState({ response: "" });
+  const [showPopover, setShowPopover] = useState(false);
   const { data, error, loading } = useQuery(USER_QUERY);
 
   if (loading) {
@@ -57,7 +59,7 @@ const App: React.FC = () => {
               <img src={Logo} alt="Ke-Taxi" />
             </IonTitle>
           </Link>
-          {!currentUser && (
+          {/* {!currentUser && (
             <Link
               to={"/signin"}
               style={{ textDecoration: "none", color: "black" }}
@@ -68,7 +70,31 @@ const App: React.FC = () => {
                 Sign-in
               </IonButtons>
             </Link>
-          )}
+          )} */}
+          {/* {currentUser && ( */}
+          <Link
+            to={"/signin"}
+            style={{ textDecoration: "none", color: "black" }}
+            slot={"end"}
+          >
+            <IonButtons
+              onClick={() => setShowPopover(true)}
+              style={{ paddingRight: "10px" }}
+            >
+              <IonIcon
+                icon={notificationsOutline}
+                color="dark"
+                size={"large"}
+              />{" "}
+            </IonButtons>
+          </Link>
+          <IonPopover
+            isOpen={showPopover}
+            onDidDismiss={e => setShowPopover(false)}
+          >
+            <p>This is popover content</p>
+          </IonPopover>
+          {/* )} */}
         </IonToolbar>
       </IonHeader>
 

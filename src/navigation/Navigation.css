@@ -24,9 +24,20 @@
   width: 28px;
   height: 28px;
   margin-top: 6px;
+  fill: #454f63;
+}
+.sideIconOutlined {
+  width: 28px;
+  height: 28px;
   fill: #fff;
+  margin-top: 6px;
   stroke-width: 7%;
-  stroke: black;
+  stroke: #454f63;
+}
+.Avatar {
+  display: flex;
+
+  justify-content: center;
 }
 .histroyIcon {
   width: 28px;

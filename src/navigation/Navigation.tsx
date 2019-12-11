@@ -9,9 +9,21 @@ import {
   IonList,
   IonMenu,
   IonMenuToggle,
-  IonToolbar
+  IonToolbar,
+  IonGrid,
+  IonRow,
+  IonCol
 } from "@ionic/react";
-import { contact, home, logOut, person, time } from "ionicons/icons";
+import {
+  contact,
+  call,
+  home,
+  logOut,
+  person,
+  time,
+  informationCircleOutline,
+  clipboard
+} from "ionicons/icons";
 import React, { useState } from "react";
 import { useMutation } from "react-apollo";
 import { Link } from "react-router-dom";
@@ -69,17 +81,17 @@ const Navigation: React.FC<{ user: any }> = props => {
             <IonMenuToggle>
               <Link to={"/"} style={{ textDecoration: "none", color: "black" }}>
                 <IonItem lines="none">
-                  <IonAvatar slot="start">
-                    <IonIcon icon={home} className="sideIcons" />
+                  <IonAvatar slot="start" className="Avatar">
+                    <IonIcon icon={home} className="sideIconOutlined" />
                   </IonAvatar>
 
-                  <IonLabel>Home</IonLabel>
+                  <IonLabel style={{ color: "#454F63" }}>Home</IonLabel>
                 </IonItem>
               </Link>
             </IonMenuToggle>
           </IonItem>
-
-          {user && (
+          {
+            /*user && (*/
             <IonItem lines="none">
               <IonMenuToggle>
                 <Link
@@ -87,43 +99,42 @@ const Navigation: React.FC<{ user: any }> = props => {
                   style={{ textDecoration: "none", color: "black" }}
                 >
                   <IonItem lines="none">
-                    <IonAvatar slot="start">
+                    <IonAvatar slot="start" className="Avatar">
                       <IonIcon
                         icon={person}
                         color="dark"
-                        className="sideIcons"
+                        className="sideIconOutlined"
                       />
                     </IonAvatar>
 
-                    <IonLabel>Profile</IonLabel>
+                    <IonLabel style={{ color: "#454F63" }}>Profile</IonLabel>
                   </IonItem>
                 </Link>
               </IonMenuToggle>
             </IonItem>
-          )}
+            /*)*/
+          }
 
-          {user && (
-            <IonItem>
+          {
+            /*user && (*/
+            <IonItem lines="none">
               <IonMenuToggle>
                 <Link
                   to={"/history"}
                   style={{ textDecoration: "none", color: "black" }}
                 >
                   <IonItem lines="none">
-                    <IonAvatar slot="start">
-                      <IonIcon
-                        icon={time}
-                        color="dark"
-                        className="histroyIcon"
-                      />
+                    <IonAvatar slot="start" className="Avatar">
+                      <IonIcon icon={time} color="dark" className="sideIcons" />
                     </IonAvatar>
 
-                    <IonLabel>History</IonLabel>
+                    <IonLabel style={{ color: "#454F63" }}>History</IonLabel>
                   </IonItem>
                 </Link>
               </IonMenuToggle>
             </IonItem>
-          )}
+            /* )*/
+          }
 
           <IonItem lines="none">
             <IonMenuToggle>
@@ -132,19 +143,14 @@ const Navigation: React.FC<{ user: any }> = props => {
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <IonItem lines="none">
-                  <IonLabel color="medium">About Us</IonLabel>
-                </IonItem>
-              </Link>
-            </IonMenuToggle>
-          </IonItem>
-          <IonItem lines="none">
-            <IonMenuToggle>
-              <Link
-                to={"/contact"}
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                <IonItem lines="none">
-                  <IonLabel color="medium">Contact Us</IonLabel>
+                  <IonAvatar slot="start" className="Avatar">
+                    <IonIcon
+                      icon={informationCircleOutline}
+                      className="sideIcons"
+                    />
+                  </IonAvatar>
+
+                  <IonLabel style={{ color: "#454F63" }}>About Us</IonLabel>
                 </IonItem>
               </Link>
             </IonMenuToggle>
@@ -156,14 +162,35 @@ const Navigation: React.FC<{ user: any }> = props => {
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <IonItem lines="none">
-                  <IonLabel color="medium">Policy</IonLabel>
+                  <IonAvatar slot="start" className="Avatar">
+                    <IonIcon icon={call} className="sideIconOutlined" />
+                  </IonAvatar>
+
+                  <IonLabel style={{ color: "#454F63" }}>Contact Us</IonLabel>
+                </IonItem>
+              </Link>
+            </IonMenuToggle>
+          </IonItem>
+          <IonItem lines="none">
+            <IonMenuToggle>
+              <Link
+                to={"/policy"}
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <IonItem lines="none">
+                  <IonAvatar slot="start" className="Avatar">
+                    <IonIcon icon={clipboard} className="sideIcons" />
+                  </IonAvatar>
+
+                  <IonLabel style={{ color: "#454F63" }}>Policy</IonLabel>
                 </IonItem>
               </Link>
             </IonMenuToggle>
           </IonItem>
         </IonList>
       </IonContent>
-      {user && (
+
+      {/* {user && (
         <IonFooter>
           <IonToolbar>
             <IonMenuToggle>
@@ -187,7 +214,7 @@ const Navigation: React.FC<{ user: any }> = props => {
             </IonMenuToggle>
           </IonToolbar>
         </IonFooter>
-      )}
+      )} */}
     </IonMenu>
   );
 };

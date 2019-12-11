@@ -55,12 +55,13 @@ const Routes: React.FC<{ user: any }> = props => {
         path="/profile"
         component={Profile}
       />
-      <ProtectedRoute
+      {/* <ProtectedRoute
         signedInUser={user}
         exact
         path="/history"
         component={History}
-      />
+      /> */}
+      <Route exact path="/history" component={History} />
       <Route exact path="/contact" component={Contact} />
       <Route exact path="/about" component={About} />
       <Route exact path="/policy" component={Policy} />

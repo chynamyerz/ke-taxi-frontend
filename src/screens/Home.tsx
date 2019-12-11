@@ -30,9 +30,9 @@ const Home: React.FC<{ isDriver: boolean }> = props => {
             </div>
           ) : (
             <div>
-              <h1 style={{ textAlign: "center" }}>
+              <h4 style={{ textAlign: "center" }}>
                 Ride a public taxi in style
-              </h1>
+              </h4>
               <Riders />
             </div>
           )}
