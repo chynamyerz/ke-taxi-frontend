@@ -1,8 +1,8 @@
-import { IonCol, IonGrid, IonRow } from "@ionic/react";
+import { IonCol, IonContent, IonGrid, IonRow } from "@ionic/react";
 import React from "react";
+import Location from "../components/Location";
 import Request from "../components/Request";
 import Riders from "../components/Riders";
-
 const Home: React.FC<{ isDriver: boolean }> = props => {
   const { isDriver } = props;
   return (
@@ -29,12 +29,12 @@ const Home: React.FC<{ isDriver: boolean }> = props => {
               />
             </div>
           ) : (
-            <div>
-              <h4 style={{ textAlign: "center" }}>
-                Ride a public taxi in style
-              </h4>
-              <Riders />
-            </div>
+            <IonContent>
+              <Location></Location>
+              <div className="Bottom">
+                <Riders />
+              </div>
+            </IonContent>
           )}
         </IonCol>
       </IonRow>

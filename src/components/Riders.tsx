@@ -10,11 +10,9 @@ import {
   IonModal,
   IonRow,
   IonSegment,
-  IonSegmentButton,
-  IonSelect,
-  IonSelectOption
+  IonSegmentButton
 } from "@ionic/react";
-import { add, close, people, person } from "ionicons/icons";
+import { add, people, person } from "ionicons/icons";
 import React, { useState } from "react";
 import "./Riders.css";
 
@@ -40,41 +38,9 @@ const Riders: React.FC = () => {
     <IonCard className="riders">
       <IonCardContent>
         <IonGrid>
-          <h2 className="ridesharing">From where to :</h2>
-          <IonRow>
-            <IonCol
-              sizeSm={"10"}
-              offsetSm={"1"}
-              sizeMd={"8"}
-              offsetMd={"2"}
-              sizeLg={"6"}
-              offsetLg={"3"}
-            >
-              <IonItem>
-                <IonSelect placeholder="From" className="location">
-                  <IonSelectOption value="f">Up Town</IonSelectOption>
-                  <IonSelectOption value="m">Down Town</IonSelectOption>
-                </IonSelect>
-              </IonItem>
-              <br />
-              <IonItem className="toLocation">
-                <IonSelect placeholder="To" className="location">
-                  <IonSelectOption value="f">Bus Stop 1</IonSelectOption>
-                  <IonSelectOption value="m">Taxi Rank</IonSelectOption>
-                </IonSelect>
-              </IonItem>
-            </IonCol>
-          </IonRow>
           <h2 className="ridesharing">Ride sharing :</h2>
           <IonRow>
-            <IonCol
-              sizeSm={"10"}
-              offsetSm={"1"}
-              sizeMd={"8"}
-              offsetMd={"2"}
-              sizeLg={"6"}
-              offsetLg={"3"}
-            >
+            <IonCol>
               <IonCard
                 onClick={() => {
                   setisMeActive(true);
@@ -95,14 +61,7 @@ const Riders: React.FC = () => {
               </IonCard>
             </IonCol>
 
-            <IonCol
-              sizeSm={"10"}
-              offsetSm={"1"}
-              sizeMd={"8"}
-              offsetMd={"2"}
-              sizeLg={"6"}
-              offsetLg={"3"}
-            >
+            <IonCol>
               <IonCard
                 onClick={() => {
                   setShowModal(true);
@@ -132,14 +91,7 @@ const Riders: React.FC = () => {
             </p>
           </IonRow>
           <IonRow style={{ marginTop: "5%" }}>
-            <IonCol
-              sizeSm={"10"}
-              offsetSm={"1"}
-              sizeMd={"8"}
-              offsetMd={"2"}
-              sizeLg={"6"}
-              offsetLg={"3"}
-            >
+            <IonCol>
               <IonButton expand="full" className="CallTaxibutton">
                 CALL TAXI{" "}
               </IonButton>
@@ -158,13 +110,6 @@ const Riders: React.FC = () => {
                 onClick={() => setShowModal(false)}
               >
                 <IonIcon icon={add} color="light" size="large" />
-              </IonButton>
-              <IonButton
-                slot="end"
-                className="closeButton"
-                onClick={() => setShowModal(false)}
-              >
-                <IonIcon icon={close} color="light" size="large" />
               </IonButton>
             </IonItem>
           </IonModal>

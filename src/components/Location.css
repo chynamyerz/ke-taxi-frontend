@@ -1,0 +1,15 @@
+.toLocation {
+  --border-width: 0;
+}
+.toIcon {
+  margin-inline-end: 2px;
+  fill: red;
+}
+.fromIcon {
+  margin-inline-end: 2px;
+  fill: limegreen;
+}
+.location {
+  width: 100%;
+  max-width: 100%;
+}

@@ -1,16 +1,13 @@
 import {
   IonCard,
-  IonCardHeader,
-  IonCardTitle,
   IonCardContent,
-  IonGrid,
   IonCol,
-  IonRow,
-  IonList,
+  IonGrid,
+  IonIcon,
   IonItem,
   IonLabel,
-  IonIcon,
-  IonButton
+  IonList,
+  IonRow
 } from "@ionic/react";
 import React from "react";
 
@@ -19,7 +16,7 @@ import { pin, radioButtonOn } from "ionicons/icons";
 const Trip: React.FC<{ trip: any }> = props => {
   const { trip } = props;
   return (
-    <IonCard style={{ marginTop: "2em" }}>
+    <IonCard>
       <IonCardContent>
         <IonLabel>5-12-2019 17:30 PM</IonLabel>
         <IonGrid style={{ textAlign: "center" }}>

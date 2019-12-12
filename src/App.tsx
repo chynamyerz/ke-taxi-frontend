@@ -7,8 +7,7 @@ import {
   IonMenuButton,
   IonPage,
   IonTitle,
-  IonToolbar,
-  IonPopover
+  IonToolbar
 } from "@ionic/react";
 import { logIn, notificationsOutline } from "ionicons/icons";
 import React, { useState } from "react";
@@ -59,7 +58,7 @@ const App: React.FC = () => {
               <img src={Logo} alt="Ke-Taxi" />
             </IonTitle>
           </Link>
-          {/* {!currentUser && (
+          {!currentUser && (
             <Link
               to={"/signin"}
               style={{ textDecoration: "none", color: "black" }}
@@ -70,37 +69,31 @@ const App: React.FC = () => {
                 Sign-in
               </IonButtons>
             </Link>
-          )} */}
-          {/* {currentUser && ( */}
-          <Link
-            to={"/signin"}
-            style={{ textDecoration: "none", color: "black" }}
-            slot={"end"}
-          >
-            <IonButtons
-              onClick={() => setShowPopover(true)}
-              style={{ paddingRight: "10px" }}
+          )}
+          {currentUser && (
+            <Link
+              to={"/signin"}
+              style={{ textDecoration: "none", color: "black" }}
+              slot={"end"}
             >
-              <IonIcon
-                icon={notificationsOutline}
-                color="dark"
-                size={"large"}
-              />{" "}
-            </IonButtons>
-          </Link>
-          <IonPopover
-            isOpen={showPopover}
-            onDidDismiss={e => setShowPopover(false)}
-          >
-            <p>This is popover content</p>
-          </IonPopover>
-          {/* )} */}
+              <IonButtons
+                onClick={() => setShowPopover(true)}
+                style={{ paddingRight: "10px" }}
+              >
+                <IonIcon
+                  icon={notificationsOutline}
+                  color="dark"
+                  size={"large"}
+                />{" "}
+              </IonButtons>
+            </Link>
+          )}
         </IonToolbar>
       </IonHeader>
 
       <IonPage style={{ marginTop: "50px" }}>
         <Navigation user={currentUser} />
-        <IonContent scrollY={false} id={"main"}>
+        <IonContent scrollY={true} id={"main"}>
           {errors.response && <Error message={errors.response} />}
           <Routes user={currentUser} />
         </IonContent>

@@ -9,20 +9,17 @@ import {
   IonList,
   IonMenu,
   IonMenuToggle,
-  IonToolbar,
-  IonGrid,
-  IonRow,
-  IonCol
+  IonToolbar
 } from "@ionic/react";
 import {
-  contact,
   call,
+  clipboard,
+  contact,
   home,
+  informationCircleOutline,
   logOut,
   person,
-  time,
-  informationCircleOutline,
-  clipboard
+  time
 } from "ionicons/icons";
 import React, { useState } from "react";
 import { useMutation } from "react-apollo";
@@ -90,8 +87,7 @@ const Navigation: React.FC<{ user: any }> = props => {
               </Link>
             </IonMenuToggle>
           </IonItem>
-          {
-            /*user && (*/
+          {user && (
             <IonItem lines="none">
               <IonMenuToggle>
                 <Link
@@ -112,11 +108,9 @@ const Navigation: React.FC<{ user: any }> = props => {
                 </Link>
               </IonMenuToggle>
             </IonItem>
-            /*)*/
-          }
+          )}
 
-          {
-            /*user && (*/
+          {user && (
             <IonItem lines="none">
               <IonMenuToggle>
                 <Link
@@ -133,8 +127,7 @@ const Navigation: React.FC<{ user: any }> = props => {
                 </Link>
               </IonMenuToggle>
             </IonItem>
-            /* )*/
-          }
+          )}
 
           <IonItem lines="none">
             <IonMenuToggle>
@@ -158,7 +151,7 @@ const Navigation: React.FC<{ user: any }> = props => {
           <IonItem lines="none">
             <IonMenuToggle>
               <Link
-                to={"/policy"}
+                to={"/contact"}
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <IonItem lines="none">
@@ -190,7 +183,7 @@ const Navigation: React.FC<{ user: any }> = props => {
         </IonList>
       </IonContent>
 
-      {/* {user && (
+      {user && (
         <IonFooter>
           <IonToolbar>
             <IonMenuToggle>
@@ -214,7 +207,7 @@ const Navigation: React.FC<{ user: any }> = props => {
             </IonMenuToggle>
           </IonToolbar>
         </IonFooter>
-      )} */}
+      )}
     </IonMenu>
   );
 };

@@ -7,3 +7,9 @@
   right: 0;
   margin-bottom: -0.5em;
 }
+.Bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
